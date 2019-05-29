@@ -1,19 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Plantilla de memoria en LaTeX para la ETSIT - Universidad Rey Juan Carlos
-%%
-%% Por Gregorio Robles <grex arroba gsyc.urjc.es>
-%%     Grupo de Sistemas y Comunicaciones
-%%     Escuela Técnica Superior de Ingenieros de Telecomunicación
-%%     Universidad Rey Juan Carlos
-%% (muchas ideas tomadas de Internet, colegas del GSyC, antiguos alumnos...
-%%  etc. Muchas gracias a todos)
-%%
-%% La última versión de esta plantilla está siempre disponible en:
-%%     https://github.com/gregoriorobles/plantilla-memoria
-%%
-%% Para obtener PDF, ejecuta en la shell:
-%%   make
-%% (las imágenes deben ir en PNG o JPG)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,6 +11,10 @@
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{fontenc}
+\usepackage{beramono}
+\usepackage{lmodern}
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
@@ -61,27 +49,27 @@
 \vspace{3cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+GRADO EN INGENIERÍA EN TELEMÁTICA
 
 \vspace{0.4cm}
 
 \large
-Curso Académico 20XX/20XX
+Curso Académico 2018/2019
 
 \vspace{0.8cm}
 
-Trabajo Fin de Grado/Máster
+Trabajo Fin de Grado
 
 \vspace{2.5cm}
 
 \LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+APLICACIÓN WEB PARA VENTA ONLINE DE TOURS CON SISTEMA DE GESTIÓN DE RESERVAS
 
 \vspace{4cm}
 
 \large
-Autor : Nombre del Alumno/a \\
-Tutor : Dr. Gregorio Robles
+Autor : Rebeca Martínez García \\
+Tutor : Pedro de las Heras Quirós
 \end{center}
 \end{titlepage}
 
@@ -99,21 +87,21 @@ Tutor : Dr. Gregorio Robles
 \vspace{-4cm}
 \begin{center}
 \LARGE
-\textbf{Trabajo Fin de Grado/Máster}
+\textbf{Trabajo Fin de Grado}
 
 \vspace{1cm}
 \large
-Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
+Aplicación Web para Venta Online de Tours con Sistema de Gestión de Reservas
 
 \vspace{1cm}
 \large
-\textbf{Autor :} Nombre del Alumno/a \\
-\textbf{Tutor :} Dr. Gregorio Robles Martínez
+\textbf{Autor :} Rebeca Martínez García \\
+\textbf{Tutor :} Pedro de las Heras Quirós
 
 \end{center}
 
 \vspace{1cm}
-La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 20XX, siendo calificada por el siguiente tribunal:
+La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2019, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
@@ -135,58 +123,73 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
+Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2019
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Dedicatoria
 
 \chapter*{}
-\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\pagenumbering{Roman}
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+aquellos que considero mi familia}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Agradecimientos
 
 \chapter*{Agradecimientos}
-%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
-\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} 
 
-Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
-Además, la pareja quizás no sea para siempre, pero tu madre sí.
+Me gustaría dar las gracias a todos aquellos que de una forma u otra me han apoyado en toda mi etapa universitaria, sois muchos los que habéis estado ahí día tras día, tanto en cada momento de crisis como en cada celebración.
+
+De forma muy especial quiero agradecérselo a Camilo, quien hace ya muchos años, me convenció para comenzar en el mundo de las telecomunicaciones, porque siempre me hizo creer que lo lograría.
+
+A mis padres, quienes desde el primer momento que empecé esta aventura, me ofrecieron su apoyo incondicional en cada paso, en cada decisión, en cada parón y en cada vuelta a empezar.
+
+A todos los profesores que de una forma u otra me han descubierto el mundo de la programación, y en especial a José Centeno, quien me informó para acercarme un poquito más a este mundo, animándome a cambiar a la  especialidad de telemática. Gracias por tu buen consejo.  
+
+A Pedro de las Heras por su tiempo y su paciencia como tutor.
+
+A mi gran amigo Alberto, por todo el largo camino recorrido juntos, por las horas productivas de biblioteca y por las que no lo fueron tanto. Sobre todo gracias por darme la idea para este proyecto, nunca lo olvidaré.
+
+A mi compañero de vida Adrián, quien a pesar de haber aparecido en el último capítulo de esta historia, su apoyo, ayuda y comprensión han sido fundamentales para mí en todos los sentidos. Gracias de todo corazón.
+
+A Nacho, quien hace ya tres años, me abrió las puertas de Interactiv4, y me dio la oportunidad para formarme profesionalmente de la mano de los mejores. Gracias sobre todo por concederme el tiempo necesario para concluir este proyecto.
+
+Por último, gracias a Irene y a Alex, quienes confiaron en mí para el desarrollo de la aplicación de su empresa. Gracias por demostrarme el nivel de autoexigencia que requiere cumplir con las expectativas de un cliente real, por vuestra ilusión, colaboración y entendimiento. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
 
 \chapter*{Resumen}
-%\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
-\markboth{RESUMEN}{RESUMEN} % encabezado
+\addcontentsline{toc}{chapter}{Resumen} 
+\markboth{RESUMEN}{RESUMEN} 
 
-Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
+Este proyecto consiste en la creación de una aplicación web adaptativa y multi idioma de venta online de tours privados y de un sistema de gestión de reservas.
 
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto
-dentro de un marco general?
-\end{itemize}
+Se ha utilizado Magento~2 como plataforma e-commerce, empleando PHP como lenguaje de programación principal y MySQL como sistema de base de datos, además de otras tecnologías y librerías.
 
-Lo mejor es escribir el resumen al final.
+La aplicación se ha alojado en una máquina externa y accesible públicamente, bajo un servidor web Apache.
+ 
+Como objetivo final, esta aplicación busca convertirse en la web oficial de la empresa DB Tours, así como en su sistema de gestión de reservas principal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
 
 \chapter*{Summary}
-%\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
-\markboth{SUMMARY}{SUMMARY} % encabezado
+\addcontentsline{toc}{chapter}{Summary}
+\markboth{SUMMARY}{SUMMARY}
 
-Here comes a translation of the ``Resumen'' into English. Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out
-just before submitting.
+This project consists of the creation of an adaptive and multi-language web application for the online sale of private tours and a booking management system.
+
+Magento~2 has been used as an e-commerce platform, using PHP as the main programming language and MySQL as a database system, in addition to other technologies and libraries.
+
+The application has been hosted on an external and public machine, under an Apache web server.
+
+This application will become the official website of the company DB Tours, as well as its main booking management system.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,20 +197,16 @@ just before submitting.
 % ÍNDICES %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Las buenas noticias es que los índices se generan automáticamente.
-% Lo único que tienes que hacer es elegir cuáles quieren que se generen,
-% y comentar/descomentar esa instrucción de LaTeX.
-
 %%%% Índice de contenidos
 \tableofcontents 
 %%%% Índice de figuras
 \cleardoublepage
-%\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
 \listoffigures % indice de figuras
 %%%% Índice de tablas
-%\cleardoublepage
-%\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
-%\listoftables % indice de tablas
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -217,90 +216,70 @@ just before submitting.
 
 \cleardoublepage
 \chapter{Introducción}
-\label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
+\label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-En este capítulo se introduce el proyeto. Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
+Este primer capítulo introduce una presentación del trabajo realizado junto a las motivaciones que han empujado su desarrollo. Así mismo se presenta la estructura del propio trabajo ofreciendo una visión general de su contenido
 
-No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
+\section{Presentación  }
+\label{sec:presentacion}
 
-Aconsejo a todo el mundo que mire y se inspire en memorias pasadas. Las mías están todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
+Este documento describe el proyecto realizado para el trabajo de fin de grado de ingeniería en telemática. El proyecto consiste en la creación de una aplicación web adaptativa y multi idioma de venta online de tours privados y sistema de gestión de reservas, desarrollada sobre Magento~2 como plataforma e-commerce, utilizando PHP como lenguaje principal de programación y MySQL como sistema de base de datos.
 
-\section{Sección}
-\label{sec:seccion}
+A través de la aplicación, el usuario y futuro cliente podrá consultar desde cualquier dispositivo el catálogo de tours existentes y toda información relevante a estos, incluida una galería fotográfica y la disponibilidad tanto horaria como lingüística en tiempo real para cada tour. Además podrá formalizar su reserva a través de los diferentes métodos de pago que se ofrecen.
 
-Esto es una sección, que es una estructura menor que un capítulo. 
+A su vez, a través del panel de administración de la aplicación, se podrá gestionar las diferentes reservas, los guías y sus disponibilidades y los horarios de cada tour, entre otras funcionalidades.
 
-Por cierto, a veces me comentáis que no os compila por las tildes.
-Eso es un problema de codificación.
-Cambiad de ``UTF-8'' a ``ISO-Latin-1'' (o vicecersa) y funcionará.
+Esta aplicación dará servicio a la empresa DB Tours, la cuál se encuentra especializada en tours privados y a medida en la ciudad de Barcelona. DB Tours destaca por su cercanía al cliente y exclusividad. 
+Su mercado está enfocado mayoritariamente a clientes alemanes, aunque actualmente también ofrece tours tanto en inglés como en español.
 
-\subsection{Estilo}
-\label{subsec:estilo}
+Pretende agilizar el proceso de reserva actual (telefónico y vía email) que requiere una confirmación de disponibilidad al cliente por parte de la empresa, y ofrecer al usuario la inmediatez de completar y confirmar la reserva online en un único paso, sin necesidad de contactar con la empresa.
 
-Recomiendo leer los consejos prácticos sobre LaTeX de Diomidos 
-Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
+DB Tours busca con ello obtener más presencia en internet, ampliar su público e incrementar sus servicios, una vez esta aplicación pase a ser su web principal.
 
-Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}
+\section{Motivación  }
+\label{sec:motivacion}
 
-A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-Observarás que el texto dentro del a referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
-También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
-Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-Por eso hay que compilar dos veces.
+La aplicación web desarrollada surge como una necesidad real de la empresa de tours privados DB Tours. 
+Pretende cubrir la necesidad de una plataforma e-commerce donde ofrecer al mercado sus tours y además centralizar la gestión de todas las reservas y pagos.
 
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
+La motivación fundamental que me ha llevado a desarrollar este proyecto ha sido el propósito de descubrir por mí misma todas las fases implicadas en un proyecto real, desde la fase de toma de requisitos, análisis, desglose de tareas, estimación de tiempos hasta el propio desarrollo.
 
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
+\subsection{Por qué DB Tours  }
+\label{subsec:motiv-dbtour}
 
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
+Existen dos motivos por los cuáles se ha elegido ofrecer el servicio a DB Tours; el primero es la relación de amistad que mantengo con las personas que lo integran, y el segundo es el objetivo personal de que el trabajo realizado tenga una utilidad real y no se limite a ser un simple trabajo teórico.
 
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
+\subsection{Por qué Magento  }
+\label{subsec:motiv-magento}
 
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
+A pesar de que existen otras plataformas de comercio electrónico más sencillas en el mercado, he elegido Magento~2 principalmente por la necesidad de aprendizaje y conocimiento sobre esta plataforma en el ámbito laboral.
+El conocimiento que se espera adquirir en el desarrollo de este proyecto sobre Magento~2 ha sido para mí una motivación para el crecimiento profesional dentro de la empresa en la que actualmente trabajo. 
 
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
+\section{Aplicaciones web similares  }
+\label{sec:appsimilares}
+
+Existen en el mercado varias empresas que ofrecen a través de sus aplicaciones web servicios similares a DB Tours.
+Algunas de las webs que he consultado como referencia, sobre todo para obtener ideas sobre cómo disponer la información y el contenido de manera llamativa para usuario, han sido: 
+
+\begin{itemize}
+  \item We Barcelona\footnote{\url{https://www.webarcelona.com}}
+  \item Barcelona Ebikes\footnote{\url{https://barcelonaebikes.rezdy.com/}}
+  \item Barcelona Segway Tour\footnote{\url{https://www.barcelonasegwaytour.com/}}
+\end{itemize}
+
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
-
-En esta sección se debería introducir la esctura de la memoria. Así:
+Con el fin de facilitar la comprensión y el orden del proyecto, a continuación se detalla la estructura del contenido que sigue la presente memoria:
 
 \begin{itemize}
-  \item En el primer capítulo se hace una intro al proyecto.
-  
-  \item En el capítulo~\ref{chap:objetivos} (ojo, otra referencia automática) se muestran los objetivos del proyecto.
-  
-  \item A continuación se presenta el estado del arte.
-  
-  \item \ldots
+  \item \textbf{Capítulo~\ref{chap:intro}. Introducción:} Este capítulo contiene una presentación del trabajo junto a las motivaciones que han empujado a su desarrollo y la propia estructura de la memoria.
+  \item \textbf{Capítulo~\ref{chap:objetivos}. Objetivos: } En este capítulo se muestran los objetivos generales y específicos del proyecto, así como las tareas y fases en las que se ha dividido.
+  \item \textbf{Capítulo~\ref{chap:estadodelarte}. Estado del Arte: }En este capítulo se describen las tecnologías implicadas en el desarrollo de la aplicación.
+  \item \textbf{Capítulo~\ref{chap:implementacion}. Diseño e Implementación: }Este capítulo contiene el análisis realizado y la funcionalidad desarrollada en la aplicación, así como su estructura interna.
+  \item \textbf{Capítulo~\ref{chap:resultados}. Resultados:}  En este capítulo se listan los resultados obtenidos.
+   \item \textbf{Capítulo~\ref{chap:conclusiones}. Conclusiones: } En este capítulo se analiza el cumplimiento de objetivos, se reflexiona sobre lo aprendido y se mencionan posibles trabajos futuros.
 \end{itemize}
 
 
@@ -317,25 +296,178 @@ En esta sección se debería introducir la esctura de la memoria. Así:
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Aquí vendría el objetivo general en una frase:
-Mi trabajo fin de grado consiste en crear de una herramienta de análisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
+El objetivo general de este trabajo de fin de grado consiste en crear una aplicación web de venta y reserva online de tours privados, y un sistema de gestión de reservas.
 
-Recuerda que los objetivos siempre vienen en infinitivo.
+Deberá ofrecer al usuario la posibilidad de: 
+\begin{itemize}
+  \item Visitar el catálogo de tours, su información y fotografías de una forma clara y ordenada.
+  \item Consultar la disponibilidad en tiempo real de cada tour, teniendo opción de consultar por fecha, hora e idioma.
+  \item Reservar el tour seleccionado, pudiendo elegir entre los diferentes métodos de pago ofrecidos.
+\end{itemize}
 
+Deberá permitir al administrador desde un panel de administración:
 
-\section{Objetivos específicos}
+\begin{itemize}
+  \item Consultar y gestionar las reservas existentes. %%, pudiendo crear nuevas y cancelar existentes.
+  \item Gestionar los guías, su disponibilidad para realizar los tours así como los idiomas que se ofrecen.
+    \item Crear y editar los tours ofrecidos en la web, pudiendo especificar horarios y condiciones de reserva de estos.
+\end{itemize}
+
+\section{Objetivos específicos  }
 \label{sec:objetivos-especificos}
 
-Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
-Y, sí, también vienen en infinitivo.
+\subsection{Fase I}
+\label{subsec:faseuno}
 
+Esta fase inicial tiene gran parte de análisis en lo que al catálogo se refiere, ya que ha sido necesario estructurar toda la información relativa a los tours.
+
+Además, han sido necesarias varias sesiones con el cliente hasta conseguir el total de los requerimientos, para poder comenzar el diseño general de base de datos y el desarrollo del sistema de reservas.
+
+En lo que a desarrollo se refiere, se centra en la generación y consulta de la disponibilidad para cada tour, es decir, conseguir mostrar en la página de detalle de cada tour, todas las opciones de fecha, hora e idioma y su disponibilidad, así como completar el proceso de compra, generar una nueva reserva y asignarla a un guía.
+
+Esta primera fase se desglosa de forma más detallada en las siguientes tareas:
+
+\begin{itemize}
+
+\item \textbf{Instalación y Configuración:}
+
+Contratación y montaje del servidor.
+
+Configuración básica de la tienda en Magento.
+%%: Creación de vistas de tienda, visualización de precios e impuestos, stock, métodos de pago.
+
+Instalación de los paquetes de idiomas para español y alemán.
+
+Compra e instalación del tema front-end elegido para la tienda.
+
+\item \textbf{Análisis y Definición:}
+
+Recopilación de información sobre los tours ofrecidos, sus características, contenidos, precios, y peculiaridades.
+
+Análisis y definición del tipo de producto y atributos personalizados necesarios.
+
+Análisis y definición de la categorización de los productos.
+
+Análisis inicial del sistema de reservas.
+
+Definición de diagrama inicial de base de datos.
+
+\item \textbf{Desarrollo:}
+
+Adecuación de estilos del tema.
+
+Creación de la estructura del catálogo: productos, atributos y categorías.
+
+Creación de las entidades en base de datos mediante scripts
+
+Sistema de generación automática de entidades Tour Events.
+
+Sistema de consulta de disponibilidad.
+
+Sistema de proceso de reserva
+
+\item \textbf{Contenido:}
+
+Creación de la estructura de plantilla para recoger todos los valores de atributo de cada producto por idioma.
+
+Creación de la estructura de plantilla para recoger todos los valores de precios de cada producto por número de personas.
+
+Optimización de imágenes para la galería de productos.
+
+\end{itemize}
+
+\subsection{Fase II}
+\label{subsec:fasedos}
+Esta fase se centra en el desarrollo de la gestión de reservas desde el panel de administración, en crear todas las herramientas necesarias para que el administrador pueda generar las disponibilidades de cada tour, gestionar las reservas existentes, crear nuevas reservas, gestionar los guías, sus idiomas y sus calendarios de eventos asignados.
+
+Esta segunda fase se desglosa de forma más detallada en las siguientes tareas:
+\begin{itemize}
+\item \textbf{Instalación y Configuración:}
+
+Instalación de la extensión SMTP para el envío de emails\footnote{\url{https://www.mageplaza.com/magento-2-smtp/}}. 
+
+Configuración de la cuenta de cliente como cuenta de servidor de correo.
+
+\item \textbf{Contenido:}
+
+Personalización de la página de contacto.
+
+Creación de contenidos estáticos por idiomas: home, menú, pie de página, páginas de condiciones, zonas de recogida, tours a medida.
+
+\item \textbf{Desarrollo:}
+
+Maquetación de contenidos estáticos: home, menú, pie de página, zonas de recogida, tours a medida.
+
+Sistema de generación de tours events manual desde el panel de administración para cada producto.
+
+Sistema de gestión de la reserva desde el panel de administración.
+
+Sistema de gestión de guías e idiomas desde el panel de administración.
+
+Sistema de gestión de eventos de calendario para cada guía desde el panel de administración.
+
+\end{itemize}
+
+\subsection{Fase III}
+\label{subsec:fasetres}
+
+Esta tercera fase, más que ser una fase de desarrollo en sí, pretende cubrir las posibles mejoras a nivel de servidor, optimización, posicionamiento y redes sociales, como preparación para su lanzamiento a producción.
+
+Se desglosa en las siguientes tareas:
+
+Automatización de un sistema de despliegues en el servidor.
+
+Automatización de un sistema de backups en el servidor.
+
+Instalación y configuración de Varnish como sistema de full-page caché~\cite{mage-varnish}. 
+
+Instalación y configuración de Redis como sistema de caché y sesiones~\cite{mage-redis}. 
+
+Integración de redes sociales en la web como Facebook, Instagram y Tripadvisor.
+
+Mejora del posicionamiento de la web en Google, a través de Google Search Console~\cite{google-searchconsole}.
+
+Instalación y configuración de Google Analytics para el análisis de tráfico en la web~\cite{google-analytics}.
+
+Adecuación de la web al nuevo reglamento Reglamento General de Protección de Datos europeo (GDPR)~\cite{gdpr}.
 
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
-A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
+El tiempo empleado en este proyecto se divide en tres periodos, puede verse en diagrama de Gantt en la figura~\ref{fig:gannt_mes}. 
+
+A continuación se proporciona más información sobre cada uno de ellos.
+
+\subsection{Periodo I}
+\begin{itemize}
+\item Tiempo natural: desde el 2 de enero de 2019 al 4 de febrero de 2019.
+\item Dedicación: Completa
+\item Nivel de esfuerzo: 6 días por semana en jornadas de entre 8 y 12 horas.
+\item Consecución de Objetivos: completar fase I
+\end{itemize}
+ 
+\subsection{Periodo II}
+\begin{itemize}
+\item Tiempo natural: desde el 4 de febrero de 2019 al 7 de abril de 2019.
+\item Dedicación: Parcial
+\item Nivel de esfuerzo: 3 días por semana en jornadas de entre 8 y 10 horas.
+\item Consecución de Objetivos: completar fase II
+\end{itemize}
+
+\subsection{Periodo III}
+\begin{itemize}
+\item Tiempo natural: desde el 8 de abril de 2019 al 20 de mayo de 2019.
+\item Dedicación: Parcial
+\item Nivel de esfuerzo: 15 horas semanales.
+\item Consecución de Objetivos: escritura de la memoria.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=18cm, keepaspectratio]{img/diagrama-gannt-mes}
+  \caption{Diagrama Gantt mensual}
+  \label{fig:gannt_mes}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -345,39 +477,315 @@ Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 
 
 \cleardoublepage
 \chapter{Estado del arte}
+\label{chap:estadodelarte}
 
-Descripción de las tecnologías que utilizas en tu trabajo. 
-Con dos o tres párrafos por cada tecnología, vale. 
-Se supone que aquí viene todo lo que no has hecho tú.
+En este capítulo se describen las tecnologías más utilizadas para la realización de la aplicación.
 
-Puedes citar libros, como el de Bonabeau et al. sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. % Nota que el ~ añade un espacio en blanco, pero no deja que exista un salto de línea. Imprescindible ponerlo para las citas.
+\section{Magento como plataforma e-commerce} 
+\label{sec:magento}
 
-También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+Magento es una solución flexible y escalable con la que se pueden desarrollar prácticamente todo tipo de proyectos e-commerce.
+Al tratarse de una plataforma de código abierto, permite la personalización requerida por cualquier negocio online.
 
-\section{Sección 1} 
-\label{sec:seccion1}
+Es la más popular a nivel mundial ya que la usan cerca del 20\% de las webs dedicadas a venta online.
 
-Hemos hablado de cómo incluir figuras.
-Pero no hemos dicho nada de tablas.
-A mí me gustan las tablas.
-Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo}.
+Algunas de las características más destacables que ofrece Magento, son:
+\begin{itemize}
+\item Flexibilidad absoluta en la personalización del diseño.
+\item Potente panel de administración.
+\item Promociones y herramientas de marketing.
+\item Optimización SEO (Search Engine Optimization).
+\item Soporte de internacionalización (idiomas, monedas).
+\item Diferentes sistemas de pagos online.
+\item Gestión avanzada de pedidos, facturas y notas de abono.
+\item Estadísticas y reportes.
+\item Visualización para dispositivos móviles.
+\item Comentarios de los productos.
+\item Integración con redes sociales.
+\item Gestión avanzada del catálogo de productos y categorías.
+\item Gestión de productos simples, configurables, agrupados, bundles, virtuales.
+\item Funciones de cross-selling y up-selling.
+\item Gestión de promociones.
+\item Gestión multi-tienda.
+\item Gestión de divisa, IVA y transporte.
+\item Boletines de newsletter.
+\item Módulo CMS para gestionar fácilmente contenido.
+\item Soporte de los principales módulos de pago.
+\end{itemize}
 
-\begin{table}
- \begin{center}
-  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
-    \hline
-    1 & 2 & 3 \\ \hline % el hline nos da una línea vertical
-    4 & 5 & 6 \\ \hline
-    7 & 8 & 9 \\
-    \hline
-  \end{tabular}
-  \label{tabla:ejemplo}
-  \caption{Ejemplo de tabla}
- \end{center}
-\end{table}
+
+\subsection{Arquitectura}
+\label{subsec:magento-arquitectura}
+Magento emplea el sistema de base de datos relacional MySQL, el lenguaje de programación PHP, y elementos de Zend Framework y Symfony. 
+Aplica las prácticas de la programación orientada a objetos, la arquitectura modelo-vista-controlador y utiliza el modelo entidad-atributo-valor para almacenar los datos.
+
+El diagrama de la figura~\ref{fig:magento_layers} ilustra la arquitectura de Magento y muestra las diferentes capas o niveles de componentes, formados por Magento Framework, así como por librerías de terceros, base de datos y otras tecnologías.
+
+La estructura de base de datos de Magento es bastante extensa, aproximadamente 315 tablas dependiendo de la versión exacta utilizada, sin embargo algunos de los diagramas entidad-relación más importantes se pueden encontrar en este enlace ~\footnote{\url{https://www.erdcloud.com/library/magento}}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/magento_layers}
+  \caption{Arquitectura Magento: Visión general}
+  \label{fig:magento_layers}
+\end{figure}
+
+\subsection{Estructura de archivos}
+\label{subsec:estructura-archivos}
+Los módulos en Magento~2 siguen la estructura típica de archivos mostrada en la figura~\ref{fig:estructura-modulo-fig}, siendo requeridos los siguientes ficheros:
+
+\begin{itemize}
+\item \textbf{registration.php:}  Es el nexo de unión entre la gestión de dependencias con Composer y Magento, mediante el mismo, el framework de Magento conoce de la existencia del módulo y permite su uso.
+\item \textbf{etc/module.xml:} Especifica información básica sobre el módulo, como las dependencias con otros módulos de Magento y su número de versión. Este número de versión es utilizado para determinar las instalaciones y actualizaciones sobre base de datos.
+\item \textbf{composer.json:}  Permite la definición de dependencias entre paquetes,  así como su gestión e instalación.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/file-structure}
+  \caption{Estructura de archivos}
+  \label{fig:estructura-modulo-fig}
+\end{figure}
+
+Algunos de los directorios más comunes y su contenido son: 
+\begin{itemize}
+\item \textbf{Block:} Clases PHP de vista, como parte de la implementación de MVC (Modelo Vista Controlador).
+\item \textbf{Controller:} Clases PHP de controladores, como parte de la implementación de MVC.
+\item \textbf{etc:} Archivos de configuración; en particular el fichero requerido module.xml.
+\item \textbf{Model:}  Clases PHP de modelos, como parte de la implementación de MVC.
+\item \textbf{Setup:} Clases relativas a la estructura de base de datos del módulo y la instalación de datos.
+\item \textbf{Api:} Definición de interfaces.
+\item \textbf{Console:} Comandos CLI (Command Line Interface).
+\item \textbf{Cron:} Tareas cron.
+\item \textbf{Helper:} Clases cuyo objetivo es permitir que funcionalidad común sea reutilizada en diferentes sitios del código.
+\item \textbf{i18n:} Archivos de localización.
+\item \textbf{Observer:} Clases cuya ejecución está condicionada a la ocurrencia de ciertos eventos definidos.
+\item \textbf{Plugin:} Clases cuyo objetivo es redefinir funcionalidad existente.
+\item \textbf{view:}  Archivos de vista, incluidos los archivos de vista estática, plantillas de diseño, plantillas de correo electrónico y archivos de diseño.
+\end{itemize}
+
+\subsection{Jerarquía de tiendas}
+\label{subsec:estructura-tiendas}
+
+Cada instalación de Magento tiene una jerarquía de \textit{website(s)}, \textit{store(s)}, y \textit{store view(s)}. Una sola instalación puede tener múltiples sitios web, y cada sitio web puede tener múltiples tiendas y vistas de tiendas.
+El término scope determina a qué parte de la jerarquía se está haciendo referencia, como por ejemplo, a qué scope aplica un entidad determinada (producto, categoría, atributo), un elemento de contenido, una configuración\ldots
+
+Algunas características de cada uno de los distintos niveles de jerarquía son:
+
+\begin{itemize}
+\item \textbf{Website - Sitio web:}
+Una misma instalación de Magento puede contener múltiples sitios web. Los distintos sitios web pueden configurarse para usar el mismo dominio o dominios diferentes, tener clientes compartidos o propios, y podrán tener su propio proceso de checkout y métodos de pago. Puede verse un ejemplo en la figura~\ref{fig:multiwebsites}.
+
+\item \textbf{Store - Tienda:}
+Un sitio web puede contener múltiples tiendas, cada una de ellas con su propio menú principal. Las tiendas pueden tener diferente árbol de categorías o pueden compartirlo, y pueden tener diferentes selección de productos y diseño. Todas las tiendas pertenecientes al mismo sitio web comparten el mismo proceso de checkout, métodos de pago y clientes.
+Puede verse un ejemplo en la figura~\ref{fig:multistores}.
+
+\item \textbf{Store View - Vista de tienda:}
+Cada tienda disponible es presentada de acuerdo a una vista de tienda determinada por defecto, sin embargo existe la posibilidad de crear tantas vistas de tienda asociadas a una tienda como se necesite.
+Un ejemplo de uso muy común, es crear una vista de tienda para cada uno de los idiomas ofrecidos en la tienda. 
+Puede verse un ejemplo en la figura~\ref{fig:multistoreviews}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/multiple_websites}
+  \caption{Múltiples sitios web}
+  \label{fig:multiwebsites}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/multiple_stores}
+  \caption{Múltiples tiendas}
+  \label{fig:multistores}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/multiple_storeviews}
+  \caption{Múltiples vistas de tienda}
+  \label{fig:multistoreviews}
+\end{figure}
+
+\end{itemize}
+
+\section{Tecnologías front-end} 
+\label{sec:web-front}
+Algunas de las tecnologías front-end implicadas en el proyecto son las siguientes:
+
+\subsection{HTML5}
+\label{subsec:html}
+
+HTML5 se trata de la quinta versión del lenguaje de marcado HTML (HyperText Markup Language)~\cite{html}. 
+Es el responsable de estructurar y ordenar el contenido de una página web, que es servida e interpretada a través de un navegador.
+
+El lenguaje HTML está formado por elementos que indican el tipo de contenido que presentan entre su apertura y su cierre, pudiendo anidarse unos elementos dentro de otros. 
+Las páginas HTML se suelen dividir en dos secciones principales: la cabecera y el cuerpo, ambas partes delimitadas por sus correspondientes etiquetas  \textit{head} y  \textit{body}.
+En la cabecera se incluye información relevante, no visible para el usuario, sobre la página web, como metadatos, enlaces a documentos externos o información acerca del estilo de la página, mientras que en el cuerpo se incorpora todo el contenido que el usuario puede ver en pantalla como texto y multimedia.
+
+Una de las mejoras que proporciona HTML5 es la posibilidad de visualizar el contenido multimedia incluso sin conexión. Para ello se han incluido nuevas etiquetas como  \textit{canvas},  \textit{video} y  \textit{audio}, que permiten al usuario consumir vídeos y canciones sin necesidad de instalar nada de forma adicional. Otras nuevas etiquetas importantes de \textit{HTML5} son \textit{header}, \textit{footer}, \textit{nav}, \textit{section} y \textit{article}.
+
+\subsection{CSS3}
+\label{subsec:css}
+Las hojas de estilo en cascada \textit{CSS (Cascading StyleSheets)} ~\cite{css} describen cómo los elementos de un documento escrito en lenguaje de marcado, por ejemplo \textit{HTML}, deberían ser mostrados o presentados en pantalla. Se utiliza principalmente para el diseño visual de la interfaz de usuario de páginas web, mejorando así su apariencia. 
+Se utiliza para representar de manera eficiente los documentos \textit{HTML} y \textit{XML}, separando el contenido de su presentación. 
+
+Algunos de los estilos que es posible modificar a través de estas hojas de estilo son colores, fuentes de texto, tamaños de elementos o de la fuente y su disposición.
+\textit{CSS} evoluciona en \textit{CSS3} para ofrecer una gran variedad de opciones importantes para las necesidades del diseño web actual. Desde opciones de sombreado, redondeado y efectos en textos, hasta funciones más avanzadas de movimiento y transformación.
+
+\subsection{Bootstrap}
+\label{subsec:bootstrap}
+
+\textit{Bootstrap}~\cite{bootstrap} es uno de los frameworks más conocidos para la creación de páginas web. Contiene plantillas basadas en \textit{HTML} y \textit{CSS} que facilitan la implementación del diseño web, así como extensiones adicionales de \textit{JavaScript}.
+Su principal finalidad es convertir el desarrollo front-end en una tarea más sencilla, rápida y eficaz, permitiendo al desarrollador despreocuparse en gran medida del diseño y apariencia básica de la aplicación web.
+
+Una de sus características y motivo principal por el que es tan popular, es que se trata de plantillas con diseño responsive, es decir, adaptables a todo tipo de pantallas y dispositivos de diferentes tamaños.
+
+\subsection{JavaScript}
+\label{subsec:js}
+\textit{JavaScript}~\cite{javascript}, conocido comúnmente como \textit{JS}, es un lenguaje de programación interpretado orientado a objetos que se utiliza principalmente para añadir dinamismo a las páginas web.
+Es usado principalmente en el desarrollo de aplicaciones web en el lado del cliente, no requiere compilación y es el navegador el encargado de interpretar el código.
+Proporciona una mayor usabilidad, interactividad y navegabilidad a la web. También es utilizado, junto con otras tecnologías o herramientas, para enviar y recibir información del servidor.
+
+A pesar de su similitud con el nombre del lenguaje de programación \textit{Java}, no debe confundirse, pues son dos lenguajes de programación que en nada se asemejan. 
+
+\subsection{jQuery}
+\label{subsec:jquery}
+
+\textit{jQuery}~\cite{jquery} es una biblioteca de \textit{JavaScript} de código abierto y software libre que permite simplificar y facilitar el uso de este lenguaje en nuestra página web. 
+Entre las numerosas funcionalidades que \textit{jQuery} ofrece, una de las más importantes es la manipulación del árbol \textit{DOM (Document Object Model)}. 
+Mediante el uso de las funciones \textit{jQuery()} es posible modificar el contenido de la web sin tener que recargarla.
+
+El \textit{DOM} es una representación de todos los elementos que conforman una página web. Sigue una estructura en forma de árbol donde los elementos, denominados nodos, están interconectados, especificando la relación que existe entre cada uno de ellos. 
+
+\textit{jQuery} simplifica la sintaxis para encontrar, seleccionar y manipular dichos elementos \textit{DOM}.
+También permite el manejo de eventos, la modificación de estilos, animaciones, efectos e interacción mediante \textit{AJAX} con el servidor.
+
+\subsection{AJAX}
+\label{subsec:ajax}
+\textit{AJAX (Asynchronous JavaScript And XML)} ~\cite{ajax} es una técnica que permite enviar y recibir información desde el servidor al cliente.
+Este envío de información se realiza a través de una comunicación asíncrona con el servidor, siendo posible realizar cambios en la página sin necesidad de recargar la página.
+Esta técnica permite el desarrollo de webs más eficientes al poder solicitar solo la información requerida, aprovechando los datos cargados previamente; aparte, permite crear aplicaciones más fluidas y dinámicas.
+
+\subsection{RequireJS}
+\label{subsec:require}
+
+\textit{RequireJS}~\cite{require} es una librería \textit{JavaScript} que nos permite aislar mediante módulos los componentes de nuestra aplicación cliente y resolver las dependencias de estos mismos.
+Implementa el patrón de diseño de software \textit{AMD (Asynchronous module definition)}
+
+Se caracteriza por permitir la carga dinámica de dependencias, descarga automática de dependencias y por el manejo de timeouts y carga de fallbacks.
 
 
+\subsection{Knockout.js}
+\label{subsec:knockout}
+\textit{Knockout JS}~\cite{knockout} es una librería de JavaScript que implementa el patrón de diseño Model-View-ViewModel (MVVM). Permite interactuar de una manera fácil con la interfaz de usuario.
+Se caracteriza por contener enlaces declarativos, que permiten asociar fácilmente los elementos DOM con los datos del modelo con una sintaxis legible y concisa y también por la actualización automática de la interfaz de usuario cuando cambia el estado del modelo de datos.
+
+\subsection{JSON}
+\label{subsec:json}
+\textit{JSON (JavaScript Object Notation)}~\cite{json} es un formato ligero para el intercambio de datos. Es fácil de leer y escribir para los humanos y además también es fácil de generar y parsear por los ordenadores.
+Es un formato muy utilizado en la actualidad para enviar información desde un servidor a un cliente ante una petición \textit{AJAX}, siendo dicha información interpretada por código \textit{JavaScript} en el cliente, con lo que permite trabajar con estos datos como si se tratase de cualquier otra variable.
+
+\section{Tecnologías back-end} 
+\label{sec:web-back}
+Algunas de las tecnologías back-end implicadas en el proyecto son las siguientes:
+
+\subsection{PHP}
+\label{subsec:php}
+
+\textit{PHP}~\cite{php} (cuyo acrónimo recursivo es \textit{PHP Hypertext Preprocessor}) es un lenguaje de programación de código abierto, orientado a objetos y de propósito general. Originalmente fue diseñado para el desarrollo web de contenido dinámico, aunque es comúnmente utilizado en la programación de scripts del lado del servidor.
+
+Fue uno de los primeros lenguajes de programación del lado del servidor que se podía incorporar directamente en un documento HTML para desarrollo web. En este caso, el código es interpretado por un servidor web con un módulo de procesador de \textit{PHP} que genera el \textit{HTML} resultante.
+
+Incluye también una interfaz de línea de comandos.
+
+Puede ser usado en la mayoría de los servidores web, al igual que en muchos sistemas operativos y plataformas.
+
+La versión utilizada para este proyecto es \textit{PHP 7.1}
+
+\subsection{Zend Framework}
+\label{subsec:zend}
+
+\textit{Zend Framework}~\cite{zend} es un framework de código abierto para PHP desarrollado por Zend, utilizado en el desarrollo de aplicaciones y servicios web con PHP 5.6+.
+Sus características más destacables son:
+\begin{itemize}
+\item Implementa el patrón MVC (Modelo-Vista-Controlador).
+\item  Es 100\% orientado a objetos.
+\item  Sus componentes tienen un bajo acoplamiento por lo que se pueden usar de forma independiente.
+\item Cuenta con soporte para internacionalización y localización de aplicaciones.
+\item Posee adapters para gran cantidad de tipos de bases de datos diferentes.
+\item Contiene componentes para la autenticación y autorización de usuarios.
+\end{itemize}
+
+\subsection{Composer}
+\label{subsec:composer}
+
+\textit{Composer}~\cite{composer} es un administrador de paquetes a nivel de aplicación para el lenguaje de programación \textit{PHP} que proporciona un formato estándar para administrar las dependencias de paquetes requeridos.
+Se ejecuta desde la línea de comandos e instala las dependencias de la aplicación de forma automática, facilitando el uso del código de terceros.
+También permite a los usuarios instalar aplicaciones \textit{PHP} que están disponibles en \textit{Packagist}~\cite{packagist}, que es el repositorio principal que contiene los paquetes disponibles.
+
+\section{Servidor web} 
+\label{sec:web-back}
+
+\subsection{Apache}
+\label{subsec:apache}
+El servidor web elegido se trata de un servidor \textit{Apache}~\cite{apache}.
+
+Apache es un software de servidor web gratuito y de código abierto, su nombre oficial es Apache HTTP Server. Es mantenido y desarrollado por la Apache Software Foundation. 
+Se trata de uno de los servidores web más antiguos y confiables, cuya primera versión fue lanzada hace más de 20 años, en 1995.
+
+Algunas de sus características más ventajosas son:
+
+\begin{itemize}
+\item Modular
+\item Código abierto
+\item Multiplataforma
+\item Extensible 
+\item Popular (fácil conseguir ayuda/soporte) 
+\end{itemize}
+
+\subsection{Alojamiento}
+\label{subsec:alojamiento}
+La aplicación se encuentra alojada en un servidor de \textit{Digital Ocean}~\cite{digital-ocean}, proveedor estadounidense de servidores virtuales privados.
+Más concretamente, se ha contratado un droplet, máquina virtual flexible que se ejecuta sobre hardware virtualizado, partiendo de una imagen \textit{LAMP (Linux + Apache + Mysql + Php)}.
+
+\section{Base de datos} 
+\label{sec:bbdd}
+
+\subsection{Mysql}
+\label{subsec:mysql}
+
+\textit{MySQL}~\cite{mysql} es un sistema de gestión de bases de datos que cuenta con una doble licencia. Por una parte es de código abierto, pero por otra, cuenta con una versión comercial gestionada por la compañía Oracle. Actualmente es la base de datos de código abierto más utilizada en el sector digital.
+
+Trabaja con bases de datos relacionales, es decir, utiliza tablas múltiples que se interconectan entre sí para almacenar la información y organizarla correctamente.
+Su función es almacenar toda la información que se desee en bases de datos y permitir la administración de estos datos de una forma sencilla gracias a su interfaz visual y a todas las opciones y herramientas de las que dispone.
+
+\section{Código} 
+\label{sec:codigo}
+
+\subsection{PhpStorm}
+\label{subsec:phpstorm}
+\textit{PhpStorm}~\cite{phpstorm} es un IDE (Integrated Development Environment) comercial multiplataforma para PHP creado por JetBrains. PhpStorm proporciona un editor para \textit{PHP}, \textit{HTML} y \textit{JavaScript} con asistencia de código inteligente que ayuda a la prevención de errores y refactorizaciones automatizadas para código PHP y JavaScript. 
+
+\subsection{Git}
+\label{subsec:git}
+\textit{Git}~\cite{git} es un software de control de versiones, pensado para la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando estas tienen un gran número de archivos de código. 
+Su propósito es llevar un registro de los cambios en el código y coordinar el trabajo que varias personas realizan sobre archivos compartidos, permitiendo el desarrollo colaborativo.
+Se ejecuta localmente, es completamente autosuficiente y no requiere el uso de ningún servicio externo de alojamiento en la nube para funcionar.
+
+\subsection{GitHub}
+\label{subsec:github}
+\textit{GitHub}~\cite{github} es una plataforma online de alojamiento del código basada en el sistema de control de versiones Git, que añade servicios a lo que ya ofrece \textit{Git} nativamente.
+Algunas de las principales funcionalidades que ofrece GitHub son:
+
+\begin{itemize}
+\item Edición en línea de archivos.
+\item Proyectos wiki.
+\item Bifurcación de repositorios (forking).
+\item Herramienta de escritorio para administrar repositorios.
+\item Notificaciones y alertas por correo electrónico.
+\item Gestión de claves de cifrado.
+\end{itemize}
+  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -386,28 +794,578 @@ Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo}.
 
 \cleardoublepage
 \chapter{Diseño e implementación}
+\label{chap:implementacion}
 
-Aquí viene todo lo que has hecho tú (tecnológicamente). 
-Puedes entrar hasta el detalle. 
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
+En este capítulo se presenta una descripción detallada sobre el diseño y la implementación de la funcionalidad desarrollada en este proyecto.
 
-\section{Arquitectura general} 
-\label{sec:arquitectura}
+\section{Estructura de tienda} 
+\label{sec:tienda}
 
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
-
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
+La arquitectura de tienda elegida para esta aplicación es la mostrada por la figura~\ref{fig:dbtours-store}.
+Está formada por un único sitio web, una tienda y tres vistas de tienda.
+Las tres vistas de tienda ofrecen el mismo catálogo, cada una de ellas en un idioma diferente: inglés, alemán y español.
 
 \begin{figure}
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
+  \includegraphics[width=12cm, keepaspectratio]{img/dbtours-store}
+  \caption{Arquitectura de tienda utilizada}
+  \label{fig:dbtours-store}
 \end{figure}
 
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
+\section{Catálogo} 
+\label{sec:catalog}
+Esta sección presenta el análisis y la estructura del catálogo que utiliza la aplicación.
 
+\subsection{Análisis del catálogo}
+\label{subsec:catalog-analisis}
+
+El análisis del catálogo realizado ha sido una de las partes fundamentales en este proyecto, ya que toda la información relativa a los tours que se querían ofrecer no estaba catalogada hasta el momento.
+
+Ha sido necesario entender las necesidades y peculiaridades de cada tour para poder definir el catálogo. Los requisitos más destacables son:
+
+\begin{itemize}
+\item Todos los tours son privados, por lo que una vez reservado para el número de personas indicado, ninguna reserva más podrá unirse a él.
+\item Cada tour puede tener un número mínimo y máximo de participantes.
+ \item El precio de cada tour varía según el número de participantes.
+\item  Algunos tours tienen opción de recogida en vehículo y otros en cambio, tienen un punto de encuentro.
+ \item Existen diferentes zonas en las que está incluida la recogida, y es necesario un punto de encuentro alternativo para aquellos casos en los que el hotel del cliente no esté dentro de la zona predefinida.
+\item  También existe la opción de que esté incluido el traslado de vuelta hasta el hotel en algunos tours.
+\item  Cada tour puede tener horarios de comienzo diferentes para cada día de la semana.
+\item Cada tour tiene un duración determinada.
+\item Cada tour puede necesitar un tiempo de traslado del guía, anterior y/o posterior a la realización del tour, que deberá ser tenido en cuenta en la consulta de disponibilidad.
+\item Cada tour necesita un listado de servicios incluidos.
+\item Cada tour necesita un listado de recomendaciones a seguir por el cliente.
+\end{itemize}
+
+
+\subsection{Atributos de producto}
+\label{subsec:catalog-atributos}
+
+Cada uno de los atributos de producto en Magento, entendiendo atributo de producto como una entidad en sí misma, tiene a su vez diferentes atributos que es necesario definir, por ejemplo: si es obligatorio, las diferentes etiquetas por vista de tienda, el scope de su valor, si es utilizado en búsquedas, comparable, visible, entre otros.
+
+\begin{table}
+ \begin{center}
+  \begin{tabular}{| l | c | c | c | c | c |} 
+    \hline
+     \textbf{Etiqueta} &  \textbf{Requerido} &  \textbf{Visible} &  \textbf{Scope} &  \textbf{Búsqueda} &  \textbf{Comparable}  \\ \hline
+    Type & Si  & Si & Global & Si & Si  \\ \hline
+    Pick up at hotel included & Si  & Si & Global & No & Si  \\ \hline
+    Drop off at hotel &	No  & Si & Global & No & Si  \\ \hline
+    Meeting point & No & Si & Store View & No & No  \\ \hline
+    Alternative Meeting Point & No & Si & Store View & No & No  \\ \hline
+    Included & No & Si & Store View & No & No  \\ \hline
+    Some Tips & No &	 Si & Store View & No & No  \\ \hline
+    Blocked After (min) & No & No & Global & No & No  \\ \hline
+    Blocked Before (min) &	No & No & Global & No & No  \\ \hline
+    Duration & No & Si & Store View & No & Si  \\ \hline
+    Duration (min) & Si & No & Global	 & No & No  \\ \hline
+    Times & No & Si & Store View & No & No  \\ \hline
+    Monday Times & No & No & Global & No & No  \\ \hline
+    Tuesday Times & No &	No &	 Global & No & No  \\ \hline
+    Wednesday Times	 & No & No & Global	 & No & No  \\ \hline
+    Thursday Times & No & No & Global & No &	 No  \\ \hline
+    Friday Times & No	 & No & Global & No	 & No  \\ \hline
+    Saturday Times & No & No & Global & No & No  \\ \hline
+    Sunday Times & No & No &	Global & No & No \\ \hline															
+  \end{tabular}
+  \caption{Atributos de producto}
+    \label{table:atributos}
+ \end{center}
+\end{table}
+
+Tras el análisis del catálogo realizado, se han definido y creado los atributos de producto mostrados en la Tabla~\ref{table:atributos}.
+
+\subsection{Opciones personalizadas}
+\label{subsec:customoptions}
+Cada tour necesita dos opciones personalizadas, una para la selección del número de participantes y otra para la fecha, hora e idioma:
+
+\begin{enumerate}
+\item Tipo Selector: Es una opción que ofrece Magento en la creación de los productos. 
+
+En este caso, se ha utilizado este tipo de opción personalizada para el número de participantes. 
+Se ha añadido un valor para cada posible número de asistentes, especificando además el incremento sobre el precio base del producto como se muestra en la figura~\ref{fig:participantsadmin}. 
+Este incremento de precio se añadirá y se mostrará al usuario cuando este seleccione una opción del desplegable en el front, como se muestra en la figura~\ref{fig:participantsfront}.
+ 
+\item Tipo tour event: Es una opción personalizada que se ha desarrollado con el fin mostrar dinámicamente al usuario las opciones de fecha, hora e idioma existentes, como se puede ver en la figura~\ref{fig:datelanguagefront}.
+Una vez desarrollada la opción, se ha añadido a cada tour esta opción personalizada como se muestra en la figura~\ref{fig:datelanguageadmin}
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/participants_admin}
+  \caption{Configuración opción personalizada: Participantes}
+  \label{fig:participantsadmin}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/participants_front}
+  \caption{Renderizado opción personalizada: Participantes}
+  \label{fig:participantsfront}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/date_language_front}
+  \caption{Renderizado opción personalizada: Fecha, hora e idioma}
+  \label{fig:datelanguagefront}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/date_language_admin}
+  \caption{Configuración opción personalizada: Fecha, hora e idioma}
+  \label{fig:datelanguageadmin}
+\end{figure}
+
+
+\subsection{Productos}
+\label{subsec:productos}
+
+Tras la creación de los atributos de producto, se ha procedido a la creación de los diferentes productos, un producto por cada tour.
+El catálogo está formado por un total de quince productos virtuales y visibles individualmente.
+
+En cada una de las respectivas páginas de producto enlazadas, se pueden consultar los valores de los atributos anteriormente nombrados y las opciones personalizadas de cada tour. 
+
+\begin{itemize}
+\item Gourmet Walking Tour~\footnote{\url{http://dev.dbcntours.com/en/gourmet-walking-tour}}
+\item Segway Tour Barcelona~\footnote{\url{http://dev.dbcntours.com/en/segway-tour-barcelona}}
+\item E-bike \& Tapas~\footnote{\url{http://dev.dbcntours.com/en/ebike-tapas-gourmet}}
+\item Sailing Experience~\footnote{\url{http://dev.dbcntours.com/en/sailing-experience}}
+\item Special for Foodies~\footnote{\url{http://dev.dbcntours.com/en/special-for-foodies}}
+\item Wine Tasting \& Lunch~\footnote{\url{http://dev.dbcntours.com/en/wine-tasting-lunch}}
+\item E-Bike Tour Nº1~\footnote{\url{http://dev.dbcntours.com/en/e-bike-tour-n1}}
+\item NY Cab \& Lunch~\footnote{\url{http://dev.dbcntours.com/en/ny-cab-lunch}}
+\item Montserrat Hiking~\footnote{\url{http://dev.dbcntours.com/en/montserrat-hiking}}
+\item Special for Kids~\footnote{\url{http://dev.dbcntours.com/en/special-for-kids}}
+\item Gaudi E-Bike~\footnote{\url{http://dev.dbcntours.com/en/gaudi-e-bike}}
+\item Jeep 4x4~\footnote{\url{http://dev.dbcntours.com/en/jeep-bbq}}
+\item Buggy \& BBQ~\footnote{\url{http://dev.dbcntours.com/en/buggy-bbq}}
+\item Quad \& BBQ~\footnote{\url{http://dev.dbcntours.com/en/quad-bbq}}
+\item Gaudi Segway tour ~\footnote{\url{http://dev.dbcntours.com/en/gaudi-segway-tour}}
+\end{itemize}
+
+\subsection{Categorías}
+\label{subsec:categoria}
+Se ha creado una categoría general Tours a la que todos los anteriores productos están asignados. 
+
+Esto permite mostrar un listado completo de todos los tours ofrecidos~\footnote{\url{http://dev.dbcntours.com/en/tours}}, y enlazarlo desde el menú principal de la web como se muestra en la figura~\ref{fig:categorylist}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/category}
+  \caption{Listado de Tours accesible desde menú}
+  \label{fig:categorylist}
+\end{figure}
+
+Además, se ha realizado una pequeña subcategorización que trata de agrupar los tours por tipología, teniendo en cuenta que cada tour puede pertenecer a más de una subcategoría.
+
+Para ello se han creado las siguientes categorías:
+
+\begin{itemize}
+\item Segway~\footnote{\url{http://dev.dbcntours.com/tours/segway}}
+\item Ebike~\footnote{\url{http://dev.dbcntours.com/tours/ebike}}
+\item Gourmet~\footnote{\url{http://dev.dbcntours.com/tours/gourmet}}
+\item Adventure~\footnote{\url{http://dev.dbcntours.com/tours/adventure}}
+\item Gaudí~\footnote{\url{http://dev.dbcntours.com/tours/gaudi}}
+\item Kids~\footnote{\url{http://dev.dbcntours.com/tours/special-kids}}
+\end{itemize}
+
+\section{Base de Datos} 
+Esta sección presenta la estructura de base de datos utilizada por la aplicación en lo que al sistema de reservas se refiere, es decir, las nuevas entidades creadas para dicho propósito, dejando al margen el resto de entidades que utiliza Magento para su funcionamiento por defecto.
+
+\label{sec:db}
+
+\subsection{Diagrama entidad-relación}
+\label{subsec:db-diagrama}
+La estructura de base de datos del sistema de reservas ha ido evolucionando según ha avanzado el desarrollo de la aplicación, ya que han ido surgiendo necesidades y funcionalidades que en un primer momento no estaban contempladas.
+
+El diagrama entidad-relación (ER) inicial puede verse en la figura~\ref{fig:db_diagram1}, mientras que el diagrama ER de la estructura final es el mostrado en la figura~\ref{fig:db_diagram2}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=18cm, keepaspectratio]{img/db_diagram1}
+  \caption{Diagrama ER inicial}
+  \label{fig:db_diagram1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=18cm, keepaspectratio]{img/db_diagram2}
+  \caption{Diagrama ER final}
+  \label{fig:db_diagram2}
+\end{figure}
+
+\subsection{Descripción de entidades}
+\label{subsec:bd-entidades}
+
+A continuación se presenta una descripción breve de cada una de las entidades que forman el sistema de base de datos definitivo.
+
+\begin{itemize}
+\item \textit{tour\_event:} Contiene una versión reservable de cada producto para cada posibilidad de fecha y hora, según el valor de algunos de sus atributos de producto.
+\item \textit{guide:} Contiene la información general relativa a cada guía.
+\item \textit{guide\_language:} Contiene la información sobre qué idiomas son ofrecidos por cada guía en la realización de los tours. 
+\item \textit{calendar\_event:} Contiene la información sobre qué eventos de calendario tiene cada guía. Una entrada en esta tabla, significa que el guía en cuestión no tiene disponibilidad en el intervalo de tiempo definido.
+\item \textit{calendar\_event\_type:} Contiene información adicional sobre cada tipología de evento de calendario.
+\item \textit{tour\_event\_language:} Se trata de una vista generada, no de una tabla en sí. Cruza datos de las tablas \textit{tour\_event}, \textit{guide}, \textit{guide\_language}, \textit{calendar\_event} y su función es preprocesar esta información para facilitar la presentación de disponibilidad al usuario.
+\item \textit{booking:} Contiene información sobre las reservas. Su función es guardar los datos relativos al tour en el momento de la reserva.
+\end{itemize}
+
+\section{Disponibilidad de Tours} 
+\label{sec:disponibilidad}
+Referente a la disponibilidad de los tours, intervienen varios procesos que se describen a continuación.
+
+\subsection{Generación automática de Tour Events} 
+\label{sec:tourevents}
+Cada Tour Event es una versión de un producto concreto para una fecha y hora determinada, que potencialmente podría ser reservada, siempre y cuando la disponibilidad de un guía lo permitiese.
+En su generación intervienen diferentes elementos que se describen a continuación:
+\begin{itemize}
+\item \textbf{Configuración necesaria:}
+ 
+Por un lado se han añadido dos configuraciones nuevas, que el administrador puede gestionar desde el panel de administración como se muestra en la figura~\ref{fig:toureventconfig}
+\begin{figure}
+  \centering
+  \includegraphics[width=18cm, keepaspectratio]{img/tourevent_config}
+  \caption{Generación Tour Events: Configuraciones}
+  \label{fig:toureventconfig}
+\end{figure}
+
+\begin{enumerate}
+\item Flag de activación: Permite habilitar y deshabilitar la generación automática de Tour Events.
+\item Días por adelantado: Permite especificar el número de días desde la fecha actual para calcular hasta qué fecha deben crearse los Tour Events.
+\end{enumerate}
+
+\item \textbf{Atributos de Producto implicados:}
+
+Desde el panel de administración y para cada producto que se quiera ofrecer bajo reserva online, es necesario especificar los valores para los atributos mostrados en la figura~\ref{fig:product_attribute_time}
+\begin{enumerate}
+\item Duration: Se debe especificar la duración del tour en minutos.
+\item Blocked Before: Se debe especificar en minutos, el tiempo que el guía debe tener disponible inmediatamente anterior al tour, en caso de ser necesario.
+\item Blocked After: Se debe especificar en minutos, el tiempo que el guía debe tener disponible inmediatamente posterior al tour, en caso de ser necesario.
+\item Monday - Sunday Times: Para cada día de la semana que el tour se ofrezca, se deben listar separados por coma, los horarios de salida en formato hh:mm.
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/product_attribute_time}
+  \caption{Generación Tour Events: Atributos de producto}
+  \label{fig:product_attribute_time}
+\end{figure}
+
+\item \textbf{Servicio de generación:}
+
+Se ha desarrollado un servicio que se encarga de la generación de Tour Events, implementado en la clase~Dbtours\textbackslash{TourEvent}\textbackslash{Service}\textbackslash{Generator}.
+Este servicio admite como parámetro de forma opcional un listado de identificadores de producto para los que se deben regenerar los Tour Events asociados.
+La ejecución del servicio sigue el flujo mostrado en la figura~\ref{fig:toureventdiagram} y como resultado el contenido de la tabla tour\_event sería semejante a los datos mostrados en la figura~\ref{fig:toureventtable}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/tourevent_diagram}
+  \caption{Generación Tour Events: Diagrama de flujo}
+  \label{fig:toureventdiagram}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/tourevent_table}
+  \caption{Contenido de la tabla tour\_event}
+  \label{fig:toureventtable}
+\end{figure}
+
+
+\item \textbf{Ejecución:}
+
+Se ha definido una tarea programada que invoca a este servicio una vez al mes, con la siguiente expresión cron: [\textit{0 0 1 * *}]. La llamada al servicio de generación desde el proceso cron se realiza sin parámetros, por lo que regenerará todos los Tour Events de todos los productos.
+\end{itemize}
+
+\subsection{Vista tour\_event\_language} 
+\label{sec:tourevents}
+La entidad Tour Event Language consiste en una vista de base de datos, que tiene como objetivo simplificar la consulta de disponibilidad. El objetivo es que dado un producto, sea sencillo listar todas las opciones de fechas e idiomas tanto disponibles como ocupadas.
+
+Su contenido mostrará una entrada única para cada tour\_event\_id e idioma ofrecido por algún guía, y contendrá información sobre la disponibilidad y los guías disponibles ordenados por prioridad de asignación. 
+Se puede ver en la figura~\ref{fig:toureventlanguage_table} 
+
+En la generación de esta vista también se tiene en cuenta el valor 3 definido en la configuración mostrado en la figura~\ref{fig:toureventconfig}, que permite al administrador definir el tiempo mínimo necesario entre el momento de reserva y el comienzo del tour, de forma que solo se generan entradas en la vista para Tour Events que cumplan este margen previo de reserva.
+
+Respecto a la disponibilidad, se considera que un Tour Event está disponible cuando existe al menos un guía con disponibilidad en su calendario, es decir, que no exista ninguna entrada en la tabla calendar\_event para el guía en cuestión, en el periodo de tiempo comprendido entre la hora de inicio menos el bloqueo anterior y la hora de finalización más el bloqueo posterior del Tour Event. 
+En el diagrama de la figura~\ref{fig:toureventavailable} se puede ver claramente los casos considerados como Tour Event no disponible.
+
+La condición utilizada en la generación de la vista que cubre todos los posibles casos es una condición compuesta de la forma [\textit{(1 OR 2 OR 3)} donde cada número se corresponde con una de las siguientes condiciones:
+\begin{enumerate}
+\item calendar\_event\_start \texttt{$\leq$} tour\_event\_start \texttt{<}  calendar\_event\_finish
+
+Cubre los casos C, D, E, F, G y H del diagrama~\ref{fig:toureventavailable}.
+\item calendar\_event\_start \texttt{<} tour\_event\_finish \texttt{$\leq$} calendar\_event\_finish
+
+Cubre los casos A, B, E, F, G y H del diagrama~\ref{fig:toureventavailable}.
+\item  (tour\_event\_start \texttt{$\leq$} calendar\_event\_start) AND  (calendar\_event\_finish \texttt{$\leq$}   tour\_event\_finish)
+
+Cubre los casos F e I del diagrama~\ref{fig:toureventavailable}.
+\end{enumerate}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/toureventlanguage_table}
+  \caption{Contenido de la tabla tour\_event\_language}
+  \label{fig:toureventlanguage_table}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/toureventavailable}
+  \caption{Tour Event: Casos de no disponibilidad}
+  \label{fig:toureventavailable}
+\end{figure}
+
+\section{Proceso de compra} 
+\label{sec:compra}
+
+\subsection{Consulta de disponibilidad} 
+\label{sec:disponibilidad}
+Desde la página de detalle de cada tour de la aplicación y gracias a la opción personalizada tour event, definida en la sección~\ref{subsec:customoptions}, el usuario podrá consultar la disponibilidad de fecha, hora e idioma en un único paso.
+
+Puesto que los valores de esta opción no son fijos y varían según disponibilidades de los guías, los datos se cargan dinámicamente por una llamada Ajax que devuelve un listado completo de las opciones de fecha, hora, idioma y disponibilidad para el tour en concreto.
+
+Tras la carga de la página, se mostrará al usuario un calendario, en el que aparecerán habilitadas las fechas para las que el tour tiene salidas, independientemente de su disponibilidad, como puede verse en la figura~\ref{fig:calendardispo1}
+
+Cuando el usuario selecciona uno de los días habilitados, se mostrará una pestaña por idioma ofrecido, y para cada uno de ellos, los horarios existentes, habilitados solo aquellos para los que existe disponibilidad, como se muestra en la figura~\ref{fig:calendardispo2}
+
+Una vez el usuario selecciona el idioma y hora deseada y solo entonces, el tour podrá añadirse al carrito para su compra, como se muestra en la figura~\ref{fig:calendardispo3} 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/calendardispo1}
+  \caption{Consulta de disponibilidad: Paso 1}
+  \label{fig:calendardispo1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/calendardispo2}
+  \caption{Consulta de disponibilidad: Paso 2}
+  \label{fig:calendardispo2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/calendardispo3}
+  \caption{Consulta de disponibilidad: Paso 3}
+  \label{fig:calendardispo3}
+\end{figure}
+
+\subsection{Creación de reserva} 
+\label{sec:reserva}
+Una vez que el tour ha sido añadido al carrito, el proceso de compra sigue el flujo propio de Magento y el usuario será redirigido al carrito, como se muestra en la figura~\ref{fig:cart}.
+Una vez el usuario revisa que su selección es correcta, mediante el botón ``Proceed to Checkout'', llegará al último paso donde podrá revisar el detalle de su pedido, completar su datos, seleccionar el método de pago y confirmar el pedido como se muestra en la figura~\ref{fig:checkout}.
+
+Si el pedido se realiza correctamente, el evento \textit{sales\_model\_service\_quote\_submit\_success} será lanzado, y un nuevo \textit{observer} atado a este evento se ejecutará. Este nuevo \textit{observer} ha sido desarrollado para realizar las siguientes acciones:
+ 
+\begin{enumerate}
+\item Para cada producto contenido en el pedido, se crea una nueva reserva asignada al guía disponible con mayor prioridad. Se insertará una nueva entrada en la tabla \textit{booking} de base de datos.
+\item Para cada producto contenido en el pedido, se crean los eventos de calendario necesarios para el guía a la reserva. Siempre se creará al menos un evento del tipo \textit{Booking}, y opcionalmente eventos de calendario del tipo \textit{Transfer}, dependiendo de si el tour reservado tenía bloqueos de disponibilidad anterior y/o posterior. Estos bloqueos son el tiempo necesario que se reserva al guía para el desplazamiento antes y después del tour.
+Estos eventos de calendario se insertarán en la tabla \textit{calendar\_event} de la base de datos.
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/cart}
+  \caption{Proceso de compra: Cart}
+  \label{fig:cart}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/checkout}
+  \caption{Proceso de compra: Checkout}
+  \label{fig:checkout}
+\end{figure}
+
+
+\section{Gestión desde Backoffice} 
+\label{sec:backoffice}
+Con el fin de añadir flexibilidad a la aplicación, se han desarrollado diferentes vistas sobre el panel de administración de Magento que permiten al administrador manejar algunas de las principales entidades del sistema de reservas.
+
+Se ha creado una nueva entrada en el menú principal ``DB Tours'' la cuál contiene el acceso a todas estas nuevas vistas. Puede verse en la figura~\ref{fig:menuadmin}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=6cm, keepaspectratio]{img/menuadmin}
+  \caption{Menú del panel de administración}
+  \label{fig:menuadmin}
+\end{figure}
+
+\subsection{Creación manual de Tour Events} 
+\label{sec:tourventmanual}
+
+Aunque no es lo habitual, en ocasiones es posible que el administrador decida cambiar los horarios de inicio de algún tour, su duración, o bien el tiempo de bloqueo anterior y/o posterior. Como ya se mencionó en la sección~\ref{sec:tourevents} estos atributos de producto se utilizan en la generación automática de Tour Events, la cual está programada para ejecutarse mensualmente, por lo que si alguno de estos valores cambia para algún tour, estos cambios no se tendrán en cuenta hasta la siguiente generación automática de Tour Events.
+
+Para ello se ha añadido una nueva vista en el panel de administración a la que se accede desde la entrada ``Tour Events - Generation'',  cuya función es permitir al administrador lanzar la regeneración de Tour Events para uno o varios tours, de forma manual. La vista puede verse en la figura~\ref{fig:toureventmanual}.
+
+Cuando el administrador hace clic en el botón ``Generate'', se invocará al servicio descrito en la sección~\ref{sec:tourevents}, pasándole como parámetros los tours seleccionados, regenerando así todos los Tour Events asociados a dichos tours.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/toureventmanual}
+  \caption{Generación manual de Tour Events}
+  \label{fig:toureventmanual}
+\end{figure}
+
+\subsection{Gestión de guías} 
+\label{sec:guias}
+Con el fin de que varios guías puedan ofrecer su disponibilidad a través de esta aplicación y sean entidades que puedan verse modificadas con el paso del tiempo, han sido necesarias dos nuevas vistas en el panel de administración a las que se puede acceder desde la entrada  ``Guides - Manage Guides'' del menú de administración.
+
+
+La vista principal muestra un listado de todos los guías existentes en la aplicación y algunos datos sobre ellos, como se muestra en la figura~\ref{fig:gridguides}. Desde el propio listado es posible filtrar los resultados, exportarlos, borrar entradas y acceder a la vista de edición de guía.
+
+
+Esta segunda vista muestra el formulario a través del cuál el administrador puede crear nuevos guías y editar los existentes. En él es posible definir los idiomas en los que el guía puede realizar los tours, la prioridad de asignación de reserva, y toda la demás información relativa al guía que se muestra en la figura~\ref{fig:formguides} y que se almacena las tablas \textit{guide} y \textit{guide\_language} de base de datos.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/gridguides}
+  \caption{Listado de guías}
+  \label{fig:gridguides}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/formguides}
+  \caption{Formulario de guía}
+  \label{fig:formguides}
+\end{figure}
+
+\subsection{Gestión de reservas} 
+\label{sec:reservas}
+Desde el panel de administración se permite gestionar las reservas existentes. Para ello, se han desarrollado dos nuevas vistas a las que se accede desde la entrada ``Booking - Manage Booking'' del menú de administración.
+
+La vista principal muestra un listado de todas las reservas existentes en la aplicación y algunos datos de ellas, como se muestra en la figura~\ref{fig:gridbooking}. Desde el propio listado, es posible filtrar los resultados, exportarlos, acceder al detalle de cada reserva y borrar entradas.
+
+La segunda vista muestra el formulario a través del cuál el administrador puede ver el detalle de la reserva, modificar la fecha e idioma, asignar a otro guía y borrar la reserva. Puede verse en la figura~\ref{fig:formbooking}. Esta información se almacena en la tabla \textit{booking} de base de datos.
+
+Para que las reservas y eventos de calendario de los guías sean consistentes entre sí, se ha desarrollado un \textit{observer}, atado a al evento \textit{dbtours\_booking\_save\_after} que se lanza de forma automática tras el guardado de cada reserva.
+Este observer se encargará de realizar las acciones necesarias tras la modificación de una reserva, que pueden ser:
+
+\begin{itemize}
+\item Si la fecha y/o hora ha cambiado, modificará los eventos de calendario asociados para la nueva fecha y hora.
+\item Si el guía ha cambiado tras la modificación, asignará al nuevo guía los eventos de calendario asociados.
+\end{itemize}
+
+Con el objetivo de que el administrador tenga pleno control sobre las reservas, las modificaciones desde el panel de administración no están sujetas a ninguna validación en lo que a disponibilidad de guía se refiere. Por lo tanto, será responsabilidad del administrador comprobar que la reserva puede ser realizada sin impedimento por alguno de los guías.
+Para ayudar en dicha tarea, en el formulario de edición de reserva se presentan todas las opciones existentes de fecha, hora e idioma para el tour en concreto, junto con la marca ``(v)'' para indicar que existe disponibilidad o ``(x)'' en caso contrario. Puede verse un ejemplo en la figura~\ref{fig:formbookingdispo}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/gridbooking}
+  \caption{Listado de reserva}
+  \label{fig:gridbooking}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/formbooking}
+  \caption{Formulario de reserva}
+  \label{fig:formbooking}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/formbookingdispo}
+  \caption{Formulario de reserva: Disponibilidad}
+  \label{fig:formbookingdispo}
+\end{figure}
+
+
+\subsection{Gestión de eventos de calendario} 
+\label{sec:eventoscalendario}
+Desde el panel de administración, se permite gestionar los eventos de calendario de los guías. Para ello se han desarrollado dos nuevas vistas a las que se accede desde la entrada ``Calendar - Manage Calendar'' del menú de administración.
+
+La vista principal muestra un listado de todos las eventos de calendario existentes en la aplicación y algunos datos de ellos, como se muestra en la figura~\ref{fig:calendareventgrid}. Desde el propio listado, es posible filtrar los resultados, exportarlos, acceder al detalle de cada evento y borrar entradas.
+
+La segunda vista muestra el formulario a través del cuál el administrador puede ver el detalle del evento, modificar el tipo, la fecha, hora y guía. Puede verse en la figura~\ref{fig:calendareventform}. Esta información se almacena en la tabla \textit{calendar\_event} de base de datos.
+
+Con esta funcionalidad, el administrador podrá registrar la disponibilidad de los guías, bloqueando con eventos de calendario aquellos intervalos de tiempo en los que el guía en concreto no puede realizar ningún tour, y por tanto no será asignado automáticamente a ninguna nueva reserva que realicen los usuarios desde la aplicación.
+
+Para facilitar la gestión de los eventos de calendario, se han definido tipos de evento, que se almacenan en la tabla \textit{calendar\_event\_type}. Permitirán al administrador distinguir entre los eventos de calendario registrados por una reserva, de aquellos que no lo son. Los diferentes tipos pueden verse en la figura~\ref{fig:calandareventtype}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/calendareventgrid}
+  \caption{Listado de eventos de calendario}
+  \label{fig:calendareventgrid}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/calendareventform}
+  \caption{Formulario de evento de calendario}
+  \label{fig:calendareventform}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/calandareventtype}
+  \caption{Tabla calendar\_event\_type}
+  \label{fig:calandareventtype}
+\end{figure}
+
+\subsection{Visualización de eventos de calendario} 
+\label{sec:teventoscalendariovisualizacion}
+Desde el panel de administración, se permite tener una visión general de los eventos de calendario de los guías. Para ello se ha desarrollado un nueva vista a la que se accede desde la entrada ``Calendar - Calendar'' del menú de administración.
+En ella se muestra un calendario completo con los eventos de calendario existentes en la aplicación como el mostrado en la figura~\ref{fig:calendareventcalendar} y además se permite al usuario filtrar por guía y tipo de evento.
+Cada evento en el calendario está identificado visualmente con el código único de guía asociado y el tipo de evento del que se trata y será mostrado con el color del tipo de evento de la tabla~\ref{fig:calandareventtype}. Haciendo clic sobre un evento en concreto, se previsualiza el resto de información y los detalles de la reserva asociada en caso de que el evento sea del tipo reserva, como puede verse en la figura~\ref{fig:calendareventcalendardetail}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/calendareventcalendar}
+  \caption{Calendario de eventos}
+  \label{fig:calendareventcalendar}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/calendareventcalendardetail}
+  \caption{Detalle evento de calendario}
+  \label{fig:calendareventcalendardetail}
+\end{figure}
+
+\section{Contenidos} 
+\label{sec:contenidos}
+
+\subsection{Imágenes} 
+\label{sec:imagenes}
+Referente a las imágenes mostradas en la web, ha sido necesaria la optimización de las imágenes de catálogo a un tamaño adecuado.
+Además, para algunas de ellas ha sido necesario realizar algunos retoques fotográficos con Adobe Photoshop como, por ejemplo, la imagen mostrada en la figura~\ref{fig:alex}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/alex}
+  \caption{Edición fotográfica}
+  \label{fig:alex}
+\end{figure}
+
+\subsection{Páginas y bloques CMS} 
+\label{sec:cms}
+Se ha utilizado el \textit{Content Management System (CMS)} de Magento para la creación de muchas de las secciones estáticas de la aplicación, ya que permite mostrar contenido estático diferente para cada vista de tienda. A continuación, se mencionan algunas de las más importantes para la vista de tienda de inglés:
+\begin{itemize}
+\item Página principal \footnote{\url{http://dev.dbcntours.com/}}
+\item Tours a Medida  \footnote{\url{http://dev.dbcntours.com/en/corporate-tour-tailor-made}}
+\item Areas de recogida \footnote{\url{http://dev.dbcntours.com/en/adrenaline-included-areas}}  \footnote{\url{http://dev.dbcntours.com/en/private-transport-included-areas}} \footnote{\url{http://dev.dbcntours.com/en/walking-included-areas}}
+\end{itemize}
+
+
+\section{Extensiones} 
+\label{sec:extensiones}
+\begin{itemize}
+\item Para el desarrollo de la parte front de la aplicación, se ha utilizado como base el tema Axon, desarrollado por ECGalaxy~\footnote{\url{https://themeforest.net/item/axon-responsive-magento-2-theme/22774996}}.
+Sobre él, se han trabajado los estilos hasta conseguir el diseño personalizado que se muestra actualmente en la aplicación.
+
+\item Se han instalado los paquetes de idiomas para español \footnote{\url{https://github.com/mageplaza/magento-2-spanish-language-pack}} y alemán \footnote{\url{https://github.com/mageplaza/magento-2-german-language-pack}}.
+
+\item Para el envío de emails se ha instalado la extensión SMTP \footnote{\url{https://github.com/mageplaza/magento-2-smtp}} que permite configurar un servidor smtp.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -416,11 +1374,21 @@ Si utilizas una base de datos, no te olvides de incluir también un diagrama de e
 
 \cleardoublepage
 \chapter{Resultados}
+\label{chap:resultados}
 
-En este capítulo se incluyen los resultados de tu trabajo fin de grado.
+Tras la creación de la aplicación web presentada en este proyecto y la consecución de la mayoría de los objetivos marcados, se han obtenido los siguientes resultados:
 
-Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
-
+  \begin{itemize}
+   \item \textbf{Modernización:}  Respecto a la web actual de la empresa DB Tours \footnote{\url{https://www.dbcntours.com/}}, la aplicación desarrollada ha conseguido un lavado de imagen con estilos y disposición del contenido de forma más moderna y atractiva para el usuario.
+   
+     \item \textbf{Adaptabilidad:} La aplicación es compatible con los distintos dispositivos y navegadores existentes, adaptando los contenidos al tamaño del dispositivo del usuario.
+     
+   \item \textbf{Inmediatez:} Gracias a la consulta en tiempo real de la disponibilidad de cada tour, el usuario recibe la confirmación de la reserva simultáneamente a su compra, evitando tener que esperar una confirmación posterior o contactar directamente con la empresa.
+   
+   \item \textbf{Mejora en la gestión:} El nuevo sistema de gestión de reservas desarrollado, permite la centralización y la optimización del tiempo de gestión, ya que el catálogo ofrecido, las ventas realizadas, reservas existentes y disponibilidades de los guías, se gestionan desde un panel de administración único.
+   
+   \item \textbf{Mejora de Posicionamiento:} Gracias a las herramientas de SEO (Search Engine Optimization) que ofrece Magento, existe la posibilidad de mejorar el posicionamiento en Google de la web.
+\end{itemize} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -435,41 +1403,65 @@ Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejempl
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
+Durante el desarrollo de este proyecto, se ha logrado conseguir todos los objetivos definidos tanto en la fase I como en la fase II de la sección \ref{sec:objetivos-especificos} Objetivos Específicos.
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
-
+Se ha decidido concluir el desarrollo terminada la fase II, ya que la extensión de las dos primeras fases cubren el alcance para la entrega y defensa de este TFG. Sin embargo, la fase III será llevada a cabo con posterioridad a la entrega de este TFG para la puesta en producción de la aplicación. 
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+Todos los conocimientos relativos a programación y redes que he aprendido durante el Grado de Telemática han sido de ayuda para la elaboración de este TFG. Sin embargo, las asignaturas más relacionadas y los conocimientos aprendidos de ellas que he podido aplicar son:
 
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+ \begin{itemize}
+  \item \textbf{Ampliación de Sistemas Telemáticos:} Programación orientado a objetos y arquitecturas Cliente/Servidor.
+   \item \textbf{Servicios Telemáticos:} Web Services, XML, HTML y Arquitectura REST.
+   \item \textbf{Aplicaciones Telemáticas:} HTML, CSS, Bootstrap, Javascript, AJAX y JQuery.
+   \item \textbf{Laboratorio de Administración y Gestión de Redes y Sistemas: } Administración de sistema UNIX.
+\end{itemize} 
 
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+El desarrollo de este TFG me ha permitido aprender en diferentes ámbitos.
 
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+\subsection{Gestión de proyecto}
+\label{subsec:lecciones_gestion}
 
+A nivel de gestión de proyecto, me ha permitido experimentar lo que supone el trato directo con el cliente y lo complejo que en ocasiones puede resultar.
+
+Con ello he aprendido a desarrollar un pensamiento más analítico capaz de interiorizar las necesidades del cliente y de transformar estas necesidades en funcionalidades perfectamente definidas. 
+
+Este análisis ha sido fundamental para poder definir tanto el alcance como las limitaciones de cada una de las funcionalidades que componen la aplicación en sí misma.
+
+\subsection{Conocimientos técnicos}
+\label{subsec:lecciones_tecnico}
+ A nivel técnico, me ha permitido ampliar mis conocimientos y profundizar sobre la plataforma Magento~2 en los siguientes aspectos:
+ 
+ \begin{itemize}
+  \item Conocimiento del funcionamiento del propio core, es decir, la funcionalidad que ofrece la plataforma de base, así como las configuraciones disponibles.
+   \item Aplicación de buenas prácticas a seguir tanto en el desarrollo de nuevas funcionalidades como en la personalización de funcionalidades ya existentes.
+\end{itemize}
+
+A pesar de haber trabajado anteriormente con Magento~1, la forma de desarrollo sobre diferentes versiones ha cambiado totalmente, por lo que el proceso de aprendizaje y el desarrollo han estado de la mano en todo momento.
+
+
+Además, a nivel de sistemas he podido aprender los pasos de instalación y configuración necesarios para alojar la aplicación en un servidor externo.
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ningún software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+Como trabajos futuros, me gustaría proponer, además de la realización de la Fase III, los siguientes posibles desarrollos:
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+\begin{enumerate}
 
+\item \textbf{Integración con Google Calendar.}
+Sincronizar los eventos de calendario de la aplicación con el calendario de Google Calendar de cada guía, para que cada uno de ellos pueda consultar sus eventos asignados desde cualquier dispositivo.
+
+\item \textbf{Integración con Tripadvisor.}
+Mostrar en la web las opiniones y reseñas del perfil de DB Tours en Tripadvisor, con el objetivo de transmitir confianza y veracidad al usuario que entra por primera vez en la web.
+
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -478,8 +1470,174 @@ Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 
 \cleardoublepage
 \appendix
-\chapter{Manual de usuario}
-\label{app:manual}
+
+\chapter{Publicación}
+\label{app:publicacion}
+
+Dominio de la aplicación \footnote{\url{http://dev.dbcntours.com/}}.
+
+Repositorio con el código fuente de la aplicación \footnote{\url{https://github.com/rebemartinezgr/dbtours}}
+
+Repositorio de la memoria \footnote{\url{https://github.com/rebemartinezgr/MemoriaTFG-RebecaMartinezGarcia}}
+
+Presente documento generado \footnote{\url{https://github.com/rebemartinezgr/MemoriaTFG-RebecaMartinezGarcia/blob/máster/memoria.pdf}}
+
+\chapter{Configuración y despliegue}
+\label{app:server}
+
+Una vez contratado el servidor y con acceso ssh, han sido necesarios los siguientes pasos para su configuración:
+
+\begin{enumerate}
+
+\item Desinstalación de Php 7.2
+{\footnotesize
+\begin{verbatim}
+    apt-get remove php7.2
+\end{verbatim}
+}
+
+\item Instalación de Php 7.1
+{\footnotesize
+\begin{verbatim}
+> sudo apt-get install software-properties-common 
+> sudo add-apt-repository ppa:ondrej/php 
+> apt-get install php7.1 php7.1-common php7.1-opcache php7.1-mcrypt php7.1-cli 
+> apt-get install php7.1-gd php7.1-curl php7.1-mysql php7.1-dom php7.1-bcmath
+> apt-get install php7.1-intl php7.1-simplexml php7.1-soap 
+> apt-get install php7.1-mbstring php7.1-zip 
+> sudo update-alternatives --set php /usr/bin/php7.1
+\end{verbatim}
+}
+
+\item Instalación composer
+{\footnotesize
+\begin{verbatim}
+> apt-get install composer
+ \end{verbatim}
+}
+
+\item Configuración de Composer para usar el repositorio de Magento
+{\footnotesize
+\begin{verbatim}
+> composer global config http-basic.repo.magento.com [user] [password]
+   \end{verbatim}
+}
+
+\item Apache: Creación VirtualHost
+{\footnotesize
+\begin{verbatim}
+> cd /etc/apache2/sites-available 
+> cp 000-default.conf dbtours.conf
+> vim dbtours.conf (edit and save) 
+> a2dissite 000-default a2ensite dbtours
+   \end{verbatim}
+}
+
+\item Apache: Habilitar 7.1 y deshabilitar 7.2
+{\footnotesize
+\begin{verbatim}
+>  a2dismod php7.2 
+>  a2enmod php7.1 
+>  a2enmod rewrite systemctl 
+>  restart apache2
+ \end{verbatim}
+}
+
+\item Dar acceso de login al usuario www-data
+{\footnotesize
+\begin{verbatim}
+> vim /etc/passwd 
+   \end{verbatim}
+   Cambiar para el usuario www-data  /usr/sbin/nologin  por  /bin/bash
+}
+
+\item Generación de claves ssh para user www-data
+{\footnotesize
+\begin{verbatim}
+> su www-data
+> ssh-keygen
+   \end{verbatim}
+}
+
+\item GitHub: Configuración las claves (deployment keys) en GitHub del user www-data para que el usuario tenga permisos de lectura sobre el repositorio
+
+\item Creación base de datos
+{\footnotesize
+\begin{verbatim}
+> CREATE DATABASE dbtours
+> GRANT ALL PRIVILEGES ON dbtours.* TO magento\@127.0.0.1 IDENTIFIED BY [Password]
+> FLUSH PRIVILEGES
+   \end{verbatim}
+}
+
+\item Importación base de datos local
+{\footnotesize
+\begin{verbatim}
+> mysql -u magento -p dbtours < dbtours_backup.sql
+   \end{verbatim}
+}
+
+\item Ajustes configuración de Mysql
+{\footnotesize
+\begin{verbatim}
+> sudo vim /etc/mysql/my.cnf
+Añadir al fichero: [mysqld] max_allowed_packet=512M
+> service mysql stop 
+> service mysql start
+   \end{verbatim}
+}
+
+\item Instalación de la Instancia de Magento
+{\footnotesize
+\begin{verbatim}
+> cd /var/www/ 
+> git clone git@github.com:rebemartinezgr/dbtours.git 
+> cd dbtours 
+> composer install
+   \end{verbatim}
+}
+
+\item Configuración de la base de datos en la instancia
+{\footnotesize
+\begin{verbatim}
+> cd /var/www/dbtours/app/etc
+   \end{verbatim}
+   Especificar host, dbname, username, password en el archivo env.php
+}
+
+\item Configuración del dominio
+{\footnotesize
+\begin{verbatim}
+> UPDATE core_config_data SET value = 'http://dev.dbcntours.com' 
+WHERE path = 'web/unsecure/base_url' or path = 'web/secure/base_url'; 
+\end{verbatim}
+}
+
+\item Actualizar cambios de base de datos
+{\footnotesize
+\begin{verbatim}
+> bin/magento setup:upgrade
+   \end{verbatim}
+}
+
+\item Configurar zona horaria del sistema
+{\footnotesize
+\begin{verbatim}
+> timedatectl set-timezone Europe/Madrid
+> timedatectl
+   \end{verbatim}
+}
+
+\item Configurar zona horaria Apache
+{\footnotesize
+\begin{verbatim}
+> vim /etc/php/7.1/apache2/php.ini
+Añadir date.timezone = Europe/Madrid
+> systemctl restart apache2
+   \end{verbatim}
+}
+
+\end{enumerate}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -487,17 +1645,11 @@ Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 % BIBLIOGRAFIA %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+ 
 \cleardoublepage
 
-% Las siguientes dos instrucciones es todo lo que necesitas
-% para incluir las citas en la memoria
 \bibliographystyle{abbrv}
-\bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
-% las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
-% que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
-% formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
-% y verás que lo puedes hacer de manera sencilla.
-% Más información: 
-% http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+\bibliography{memoria}
+
 
 \end{document}
