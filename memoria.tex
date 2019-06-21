@@ -219,7 +219,7 @@ This application will become the official website of the company DB Tours, as we
 \label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-Este primer capítulo introduce una presentación del trabajo realizado junto a las motivaciones que han empujado su desarrollo. Así mismo se presenta la estructura del propio trabajo ofreciendo una visión general de su contenido
+Este primer capítulo introduce una presentación del trabajo realizado, las motivaciones que han empujado su desarrollo y las tecnologías utilizadas. Así mismo se presenta la estructura del propio trabajo ofreciendo una visión general de su contenido.
 
 \section{Presentación  }
 \label{sec:presentacion}
@@ -268,16 +268,331 @@ Algunas de las webs que he consultado como referencia, sobre todo para obtener i
   \item Barcelona Segway Tour\footnote{\url{https://www.barcelonasegwaytour.com/}}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tecnologías Utilizadas %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Tecnologías Utilizadas}
+\label{chap:tecnologias}
+
+A continuación se describen las tecnologías más utilizadas para la realización de la aplicación.
+
+\subsection{Magento como plataforma e-commerce} 
+\label{sec:magento}
+
+Magento es una solución flexible y escalable con la que se pueden desarrollar prácticamente todo tipo de proyectos e-commerce.
+Al tratarse de una plataforma de código abierto, permite la personalización requerida por cualquier negocio online.
+
+Es la más popular a nivel mundial ya que la usan cerca del 20\% de las webs dedicadas a venta online.
+
+Algunas de las características más destacables que ofrece Magento, son:
+\begin{itemize}
+\item Flexibilidad absoluta en la personalización del diseño.
+\item Potente panel de administración.
+\item Promociones y herramientas de marketing.
+\item Optimización SEO (Search Engine Optimization).
+\item Soporte de internacionalización (idiomas, monedas).
+\item Diferentes sistemas de pagos online.
+\item Gestión avanzada de pedidos, facturas y notas de abono.
+\item Estadísticas y reportes.
+\item Visualización para dispositivos móviles.
+\item Comentarios de los productos.
+\item Integración con redes sociales.
+\item Gestión avanzada del catálogo de productos y categorías.
+\item Gestión de productos simples, configurables, agrupados, bundles, virtuales.
+\item Funciones de cross-selling y up-selling.
+\item Gestión de promociones.
+\item Gestión multi-tienda.
+\item Gestión de divisa, IVA y transporte.
+\item Boletines de newsletter.
+\item Módulo CMS para gestionar fácilmente contenido.
+\item Soporte de los principales módulos de pago.
+\end{itemize}
+
+
+\subsubsection{Arquitectura}
+\label{subsec:magento-arquitectura}
+Magento emplea el sistema de base de datos relacional MySQL, el lenguaje de programación PHP, y elementos de Zend Framework y Symfony. 
+Aplica las prácticas de la programación orientada a objetos, la arquitectura modelo-vista-controlador y utiliza el modelo entidad-atributo-valor para almacenar los datos.
+
+El diagrama de la figura~\ref{fig:magento_layers} ilustra la arquitectura de Magento y muestra las diferentes capas o niveles de componentes, formados por Magento Framework, así como por librerías de terceros, base de datos y otras tecnologías.
+
+La estructura de base de datos de Magento es bastante extensa, aproximadamente 315 tablas dependiendo de la versión exacta utilizada, sin embargo algunos de los diagramas entidad-relación más importantes se pueden encontrar en este enlace ~\footnote{\url{https://www.erdcloud.com/library/magento}}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/magento_layers}
+  \caption{Arquitectura Magento: Visión general}
+  \label{fig:magento_layers}
+\end{figure}
+
+\subsubsection{Estructura de archivos}
+\label{subsec:estructura-archivos}
+Los módulos en Magento~2 siguen la estructura típica de archivos mostrada en la figura~\ref{fig:estructura-modulo-fig}, siendo requeridos los siguientes ficheros:
+
+\begin{itemize}
+\item \textbf{registration.php:}  Es el nexo de unión entre la gestión de dependencias con Composer y Magento, mediante el mismo, el framework de Magento conoce de la existencia del módulo y permite su uso.
+\item \textbf{etc/module.xml:} Especifica información básica sobre el módulo, como las dependencias con otros módulos de Magento y su número de versión. Este número de versión es utilizado para determinar las instalaciones y actualizaciones sobre base de datos.
+\item \textbf{composer.json:}  Permite la definición de dependencias entre paquetes,  así como su gestión e instalación.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/file-structure}
+  \caption{Estructura de archivos}
+  \label{fig:estructura-modulo-fig}
+\end{figure}
+
+Algunos de los directorios más comunes y su contenido son: 
+\begin{itemize}
+\item \textbf{Block:} Clases PHP de vista, como parte de la implementación de MVC (Modelo Vista Controlador).
+\item \textbf{Controller:} Clases PHP de controladores, como parte de la implementación de MVC.
+\item \textbf{etc:} Archivos de configuración; en particular el fichero requerido module.xml.
+\item \textbf{Model:}  Clases PHP de modelos, como parte de la implementación de MVC.
+\item \textbf{Setup:} Clases relativas a la estructura de base de datos del módulo y la instalación de datos.
+\item \textbf{Api:} Definición de interfaces.
+\item \textbf{Console:} Comandos CLI (Command Line Interface).
+\item \textbf{Cron:} Tareas cron.
+\item \textbf{Helper:} Clases cuyo objetivo es permitir que funcionalidad común sea reutilizada en diferentes sitios del código.
+\item \textbf{i18n:} Archivos de localización.
+\item \textbf{Observer:} Clases cuya ejecución está condicionada a la ocurrencia de ciertos eventos definidos.
+\item \textbf{Plugin:} Clases cuyo objetivo es redefinir funcionalidad existente.
+\item \textbf{view:}  Archivos de vista, incluidos los archivos de vista estática, plantillas de diseño, plantillas de correo electrónico y archivos de diseño.
+\end{itemize}
+
+\subsubsection{Jerarquía de tiendas}
+\label{subsec:estructura-tiendas}
+
+Cada instalación de Magento tiene una jerarquía de \textit{website(s)}, \textit{store(s)}, y \textit{store view(s)}. Una sola instalación puede tener múltiples sitios web, y cada sitio web puede tener múltiples tiendas y vistas de tiendas.
+El término scope determina a qué parte de la jerarquía se está haciendo referencia, como por ejemplo, a qué scope aplica un entidad determinada (producto, categoría, atributo), un elemento de contenido, una configuración\ldots
+
+Algunas características de cada uno de los distintos niveles de jerarquía son:
+
+\begin{itemize}
+\item \textbf{Website - Sitio web:}
+Una misma instalación de Magento puede contener múltiples sitios web. Los distintos sitios web pueden configurarse para usar el mismo dominio o dominios diferentes, tener clientes compartidos o propios, y podrán tener su propio proceso de checkout y métodos de pago. Puede verse un ejemplo en la figura~\ref{fig:multiwebsites}.
+
+\item \textbf{Store - Tienda:}
+Un sitio web puede contener múltiples tiendas, cada una de ellas con su propio menú principal. Las tiendas pueden tener diferente árbol de categorías o pueden compartirlo, y pueden tener diferentes selección de productos y diseño. Todas las tiendas pertenecientes al mismo sitio web comparten el mismo proceso de checkout, métodos de pago y clientes.
+Puede verse un ejemplo en la figura~\ref{fig:multistores}.
+
+\item \textbf{Store View - Vista de tienda:}
+Cada tienda disponible es presentada de acuerdo a una vista de tienda determinada por defecto, sin embargo existe la posibilidad de crear tantas vistas de tienda asociadas a una tienda como se necesite.
+Un ejemplo de uso muy común, es crear una vista de tienda para cada uno de los idiomas ofrecidos en la tienda. 
+Puede verse un ejemplo en la figura~\ref{fig:multistoreviews}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/multiple_websites}
+  \caption{Múltiples sitios web}
+  \label{fig:multiwebsites}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/multiple_stores}
+  \caption{Múltiples tiendas}
+  \label{fig:multistores}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/multiple_storeviews}
+  \caption{Múltiples vistas de tienda}
+  \label{fig:multistoreviews}
+\end{figure}
+
+\end{itemize}
+
+\subsection{Tecnologías front-end} 
+\label{sec:web-front}
+Algunas de las tecnologías front-end implicadas en el proyecto son las siguientes:
+
+\subsubsection{HTML5}
+\label{subsec:html}
+
+HTML5 se trata de la quinta versión del lenguaje de marcado HTML (HyperText Markup Language)~\cite{html}. 
+Es el responsable de estructurar y ordenar el contenido de una página web, que es servida e interpretada a través de un navegador.
+
+El lenguaje HTML está formado por elementos que indican el tipo de contenido que presentan entre su apertura y su cierre, pudiendo anidarse unos elementos dentro de otros. 
+Las páginas HTML se suelen dividir en dos secciones principales: la cabecera y el cuerpo, ambas partes delimitadas por sus correspondientes etiquetas  \textit{head} y  \textit{body}.
+En la cabecera se incluye información relevante, no visible para el usuario, sobre la página web, como metadatos, enlaces a documentos externos o información acerca del estilo de la página, mientras que en el cuerpo se incorpora todo el contenido que el usuario puede ver en pantalla como texto y multimedia.
+
+Una de las mejoras que proporciona HTML5 es la posibilidad de visualizar el contenido multimedia incluso sin conexión. Para ello se han incluido nuevas etiquetas como  \textit{canvas},  \textit{video} y  \textit{audio}, que permiten al usuario consumir vídeos y canciones sin necesidad de instalar nada de forma adicional. Otras nuevas etiquetas importantes de \textit{HTML5} son \textit{header}, \textit{footer}, \textit{nav}, \textit{section} y \textit{article}.
+
+\subsubsection{CSS3}
+\label{subsec:css}
+Las hojas de estilo en cascada \textit{CSS (Cascading StyleSheets)} ~\cite{css} describen cómo los elementos de un documento escrito en lenguaje de marcado, por ejemplo \textit{HTML}, deberían ser mostrados o presentados en pantalla. Se utiliza principalmente para el diseño visual de la interfaz de usuario de páginas web, mejorando así su apariencia. 
+Se utiliza para representar de manera eficiente los documentos \textit{HTML} y \textit{XML}, separando el contenido de su presentación. 
+
+Algunos de los estilos que es posible modificar a través de estas hojas de estilo son colores, fuentes de texto, tamaños de elementos o de la fuente y su disposición.
+\textit{CSS} evoluciona en \textit{CSS3} para ofrecer una gran variedad de opciones importantes para las necesidades del diseño web actual. Desde opciones de sombreado, redondeado y efectos en textos, hasta funciones más avanzadas de movimiento y transformación.
+
+\subsubsection{Bootstrap}
+\label{subsec:bootstrap}
+
+\textit{Bootstrap}~\cite{bootstrap} es uno de los frameworks más conocidos para la creación de páginas web. Contiene plantillas basadas en \textit{HTML} y \textit{CSS} que facilitan la implementación del diseño web, así como extensiones adicionales de \textit{JavaScript}.
+Su principal finalidad es convertir el desarrollo front-end en una tarea más sencilla, rápida y eficaz, permitiendo al desarrollador despreocuparse en gran medida del diseño y apariencia básica de la aplicación web.
+
+Una de sus características y motivo principal por el que es tan popular, es que se trata de plantillas con diseño responsive, es decir, adaptables a todo tipo de pantallas y dispositivos de diferentes tamaños.
+
+\subsubsection{JavaScript}
+\label{subsec:js}
+\textit{JavaScript}~\cite{javascript}, conocido comúnmente como \textit{JS}, es un lenguaje de programación interpretado orientado a objetos que se utiliza principalmente para añadir dinamismo a las páginas web.
+Es usado principalmente en el desarrollo de aplicaciones web en el lado del cliente, no requiere compilación y es el navegador el encargado de interpretar el código.
+Proporciona una mayor usabilidad, interactividad y navegabilidad a la web. También es utilizado, junto con otras tecnologías o herramientas, para enviar y recibir información del servidor.
+
+A pesar de su similitud con el nombre del lenguaje de programación \textit{Java}, no debe confundirse, pues son dos lenguajes de programación que en nada se asemejan. 
+
+\subsubsection{jQuery}
+\label{subsec:jquery}
+
+\textit{jQuery}~\cite{jquery} es una biblioteca de \textit{JavaScript} de código abierto y software libre que permite simplificar y facilitar el uso de este lenguaje en nuestra página web. 
+Entre las numerosas funcionalidades que \textit{jQuery} ofrece, una de las más importantes es la manipulación del árbol \textit{DOM (Document Object Model)}. 
+Mediante el uso de las funciones \textit{jQuery()} es posible modificar el contenido de la web sin tener que recargarla.
+
+El \textit{DOM} es una representación de todos los elementos que conforman una página web. Sigue una estructura en forma de árbol donde los elementos, denominados nodos, están interconectados, especificando la relación que existe entre cada uno de ellos. 
+
+\textit{jQuery} simplifica la sintaxis para encontrar, seleccionar y manipular dichos elementos \textit{DOM}.
+También permite el manejo de eventos, la modificación de estilos, animaciones, efectos e interacción mediante \textit{AJAX} con el servidor.
+
+\subsubsection{AJAX}
+\label{subsec:ajax}
+\textit{AJAX (Asynchronous JavaScript And XML)} ~\cite{ajax} es una técnica que permite enviar y recibir información desde el servidor al cliente.
+Este envío de información se realiza a través de una comunicación asíncrona con el servidor, siendo posible realizar cambios en la página sin necesidad de recargar la página.
+Esta técnica permite el desarrollo de webs más eficientes al poder solicitar solo la información requerida, aprovechando los datos cargados previamente; aparte, permite crear aplicaciones más fluidas y dinámicas.
+
+\subsubsection{RequireJS}
+\label{subsec:require}
+
+\textit{RequireJS}~\cite{require} es una librería \textit{JavaScript} que nos permite aislar mediante módulos los componentes de nuestra aplicación cliente y resolver las dependencias de estos mismos.
+Implementa el patrón de diseño de software \textit{AMD (Asynchronous module definition)}
+
+Se caracteriza por permitir la carga dinámica de dependencias, descarga automática de dependencias y por el manejo de timeouts y carga de fallbacks.
+
+
+\subsubsection{Knockout.js}
+\label{subsec:knockout}
+\textit{Knockout JS}~\cite{knockout} es una librería de JavaScript que implementa el patrón de diseño Model-View-ViewModel (MVVM). Permite interactuar de una manera fácil con la interfaz de usuario.
+Se caracteriza por contener enlaces declarativos, que permiten asociar fácilmente los elementos DOM con los datos del modelo con una sintaxis legible y concisa y también por la actualización automática de la interfaz de usuario cuando cambia el estado del modelo de datos.
+
+\subsubsection{JSON}
+\label{subsec:json}
+\textit{JSON (JavaScript Object Notation)}~\cite{json} es un formato ligero para el intercambio de datos. Es fácil de leer y escribir para los humanos y además también es fácil de generar y parsear por los ordenadores.
+Es un formato muy utilizado en la actualidad para enviar información desde un servidor a un cliente ante una petición \textit{AJAX}, siendo dicha información interpretada por código \textit{JavaScript} en el cliente, con lo que permite trabajar con estos datos como si se tratase de cualquier otra variable.
+
+\subsection{Tecnologías back-end} 
+\label{sec:web-back}
+Algunas de las tecnologías back-end implicadas en el proyecto son las siguientes:
+
+\subsubsection{PHP}
+\label{subsec:php}
+
+\textit{PHP}~\cite{php} (cuyo acrónimo recursivo es \textit{PHP Hypertext Preprocessor}) es un lenguaje de programación de código abierto, orientado a objetos y de propósito general. Originalmente fue diseñado para el desarrollo web de contenido dinámico, aunque es comúnmente utilizado en la programación de scripts del lado del servidor.
+
+Fue uno de los primeros lenguajes de programación del lado del servidor que se podía incorporar directamente en un documento HTML para desarrollo web. En este caso, el código es interpretado por un servidor web con un módulo de procesador de \textit{PHP} que genera el \textit{HTML} resultante.
+
+Incluye también una interfaz de línea de comandos.
+
+Puede ser usado en la mayoría de los servidores web, al igual que en muchos sistemas operativos y plataformas.
+
+La versión utilizada para este proyecto es \textit{PHP 7.1}
+
+\subsubsection{Zend Framework}
+\label{subsec:zend}
+
+\textit{Zend Framework}~\cite{zend} es un framework de código abierto para PHP desarrollado por Zend, utilizado en el desarrollo de aplicaciones y servicios web con PHP 5.6+.
+Sus características más destacables son:
+\begin{itemize}
+\item Implementa el patrón MVC (Modelo-Vista-Controlador).
+\item  Es 100\% orientado a objetos.
+\item  Sus componentes tienen un bajo acoplamiento por lo que se pueden usar de forma independiente.
+\item Cuenta con soporte para internacionalización y localización de aplicaciones.
+\item Posee adapters para gran cantidad de tipos de bases de datos diferentes.
+\item Contiene componentes para la autenticación y autorización de usuarios.
+\end{itemize}
+
+\subsubsection{Composer}
+\label{subsec:composer}
+
+\textit{Composer}~\cite{composer} es un administrador de paquetes a nivel de aplicación para el lenguaje de programación \textit{PHP} que proporciona un formato estándar para administrar las dependencias de paquetes requeridos.
+Se ejecuta desde la línea de comandos e instala las dependencias de la aplicación de forma automática, facilitando el uso del código de terceros.
+También permite a los usuarios instalar aplicaciones \textit{PHP} que están disponibles en \textit{Packagist}~\cite{packagist}, que es el repositorio principal que contiene los paquetes disponibles.
+
+\subsection{Servidor web} 
+\label{sec:web-back}
+
+\subsubsection{Apache}
+\label{subsec:apache}
+El servidor web elegido se trata de un servidor \textit{Apache}~\cite{apache}.
+
+Apache es un software de servidor web gratuito y de código abierto, su nombre oficial es Apache HTTP Server. Es mantenido y desarrollado por la Apache Software Foundation. 
+Se trata de uno de los servidores web más antiguos y confiables, cuya primera versión fue lanzada hace más de 20 años, en 1995.
+
+Algunas de sus características más ventajosas son:
+
+\begin{itemize}
+\item Modular
+\item Código abierto
+\item Multiplataforma
+\item Extensible 
+\item Popular (fácil conseguir ayuda/soporte) 
+\end{itemize}
+
+\subsubsection{Alojamiento}
+\label{subsec:alojamiento}
+La aplicación se encuentra alojada en un servidor de \textit{Digital Ocean}~\cite{digital-ocean}, proveedor estadounidense de servidores virtuales privados.
+Más concretamente, se ha contratado un droplet, máquina virtual flexible que se ejecuta sobre hardware virtualizado, partiendo de una imagen \textit{LAMP (Linux + Apache + Mysql + Php)}.
+
+\subsection{Base de datos} 
+\label{sec:bbdd}
+
+\subsubsection{Mysql}
+\label{subsec:mysql}
+
+\textit{MySQL}~\cite{mysql} es un sistema de gestión de bases de datos que cuenta con una doble licencia. Por una parte es de código abierto, pero por otra, cuenta con una versión comercial gestionada por la compañía Oracle. Actualmente es la base de datos de código abierto más utilizada en el sector digital.
+
+Trabaja con bases de datos relacionales, es decir, utiliza tablas múltiples que se interconectan entre sí para almacenar la información y organizarla correctamente.
+Su función es almacenar toda la información que se desee en bases de datos y permitir la administración de estos datos de una forma sencilla gracias a su interfaz visual y a todas las opciones y herramientas de las que dispone.
+
+\subsection{Código} 
+\label{sec:codigo}
+
+\subsubsection{PhpStorm}
+\label{subsec:phpstorm}
+\textit{PhpStorm}~\cite{phpstorm} es un IDE (Integrated Development Environment) comercial multiplataforma para PHP creado por JetBrains. PhpStorm proporciona un editor para \textit{PHP}, \textit{HTML} y \textit{JavaScript} con asistencia de código inteligente que ayuda a la prevención de errores y refactorizaciones automatizadas para código PHP y JavaScript. 
+
+\subsubsection{Git}
+\label{subsec:git}
+\textit{Git}~\cite{git} es un software de control de versiones, pensado para la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando estas tienen un gran número de archivos de código. 
+Su propósito es llevar un registro de los cambios en el código y coordinar el trabajo que varias personas realizan sobre archivos compartidos, permitiendo el desarrollo colaborativo.
+Se ejecuta localmente, es completamente autosuficiente y no requiere el uso de ningún servicio externo de alojamiento en la nube para funcionar.
+
+\subsubsection{GitHub}
+\label{subsec:github}
+\textit{GitHub}~\cite{github} es una plataforma online de alojamiento del código basada en el sistema de control de versiones Git, que añade servicios a lo que ya ofrece \textit{Git} nativamente.
+Algunas de las principales funcionalidades que ofrece GitHub son:
+
+\begin{itemize}
+\item Edición en línea de archivos.
+\item Proyectos wiki.
+\item Bifurcación de repositorios (forking).
+\item Herramienta de escritorio para administrar repositorios.
+\item Notificaciones y alertas por correo electrónico.
+\item Gestión de claves de cifrado.
+\end{itemize}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
 Con el fin de facilitar la comprensión y el orden del proyecto, a continuación se detalla la estructura del contenido que sigue la presente memoria:
 
 \begin{itemize}
-  \item \textbf{Capítulo~\ref{chap:intro}. Introducción:} Este capítulo contiene una presentación del trabajo junto a las motivaciones que han empujado a su desarrollo y la propia estructura de la memoria.
+  \item \textbf{Capítulo~\ref{chap:intro}. Introducción:} Este capítulo contiene una presentación del trabajo, las motivaciones que han empujado a su desarrollo, las tecnologías utilizadas y la propia estructura de la memoria.
   \item \textbf{Capítulo~\ref{chap:objetivos}. Objetivos: } En este capítulo se muestran los objetivos generales y específicos del proyecto, así como las tareas y fases en las que se ha dividido.
-  \item \textbf{Capítulo~\ref{chap:estadodelarte}. Estado del Arte: }En este capítulo se describen las tecnologías implicadas en el desarrollo de la aplicación.
-  \item \textbf{Capítulo~\ref{chap:implementacion}. Diseño e Implementación: }Este capítulo contiene el análisis realizado y la funcionalidad desarrollada en la aplicación, así como su estructura interna.
+   \item \textbf{Capítulo~\ref{chap:implementacion}. Diseño e Implementación: }Este capítulo contiene el análisis realizado y la funcionalidad desarrollada en la aplicación, así como su estructura interna.
   \item \textbf{Capítulo~\ref{chap:resultados}. Resultados:}  En este capítulo se listan los resultados obtenidos.
    \item \textbf{Capítulo~\ref{chap:conclusiones}. Conclusiones: } En este capítulo se analiza el cumplimiento de objetivos, se reflexiona sobre lo aprendido y se mencionan posibles trabajos futuros.
 \end{itemize}
@@ -313,9 +628,9 @@ Deberá permitir al administrador desde un panel de administración:
     \item Crear y editar los tours ofrecidos en la web, pudiendo especificar horarios y condiciones de reserva de estos.
 \end{itemize}
 
-\section{Objetivos específicos  }
-\label{sec:objetivos-especificos}
-
+\section{Metodología de Trabajo }
+\label{sec:metodologia-trabajo}
+A continuación se describen las tres fases en las que se divide el desarrollo de la aplicación y se desglosan las tareas necesarias para alcanzar los objetivos descritos anteriormente.
 \subsection{Fase I}
 \label{subsec:faseuno}
 
@@ -469,323 +784,6 @@ A continuación se proporciona más información sobre cada uno de ellos.
   \label{fig:gannt_mes}
 \end{figure}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ESTADO DEL ARTE %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\chapter{Estado del arte}
-\label{chap:estadodelarte}
-
-En este capítulo se describen las tecnologías más utilizadas para la realización de la aplicación.
-
-\section{Magento como plataforma e-commerce} 
-\label{sec:magento}
-
-Magento es una solución flexible y escalable con la que se pueden desarrollar prácticamente todo tipo de proyectos e-commerce.
-Al tratarse de una plataforma de código abierto, permite la personalización requerida por cualquier negocio online.
-
-Es la más popular a nivel mundial ya que la usan cerca del 20\% de las webs dedicadas a venta online.
-
-Algunas de las características más destacables que ofrece Magento, son:
-\begin{itemize}
-\item Flexibilidad absoluta en la personalización del diseño.
-\item Potente panel de administración.
-\item Promociones y herramientas de marketing.
-\item Optimización SEO (Search Engine Optimization).
-\item Soporte de internacionalización (idiomas, monedas).
-\item Diferentes sistemas de pagos online.
-\item Gestión avanzada de pedidos, facturas y notas de abono.
-\item Estadísticas y reportes.
-\item Visualización para dispositivos móviles.
-\item Comentarios de los productos.
-\item Integración con redes sociales.
-\item Gestión avanzada del catálogo de productos y categorías.
-\item Gestión de productos simples, configurables, agrupados, bundles, virtuales.
-\item Funciones de cross-selling y up-selling.
-\item Gestión de promociones.
-\item Gestión multi-tienda.
-\item Gestión de divisa, IVA y transporte.
-\item Boletines de newsletter.
-\item Módulo CMS para gestionar fácilmente contenido.
-\item Soporte de los principales módulos de pago.
-\end{itemize}
-
-
-\subsection{Arquitectura}
-\label{subsec:magento-arquitectura}
-Magento emplea el sistema de base de datos relacional MySQL, el lenguaje de programación PHP, y elementos de Zend Framework y Symfony. 
-Aplica las prácticas de la programación orientada a objetos, la arquitectura modelo-vista-controlador y utiliza el modelo entidad-atributo-valor para almacenar los datos.
-
-El diagrama de la figura~\ref{fig:magento_layers} ilustra la arquitectura de Magento y muestra las diferentes capas o niveles de componentes, formados por Magento Framework, así como por librerías de terceros, base de datos y otras tecnologías.
-
-La estructura de base de datos de Magento es bastante extensa, aproximadamente 315 tablas dependiendo de la versión exacta utilizada, sin embargo algunos de los diagramas entidad-relación más importantes se pueden encontrar en este enlace ~\footnote{\url{https://www.erdcloud.com/library/magento}}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/magento_layers}
-  \caption{Arquitectura Magento: Visión general}
-  \label{fig:magento_layers}
-\end{figure}
-
-\subsection{Estructura de archivos}
-\label{subsec:estructura-archivos}
-Los módulos en Magento~2 siguen la estructura típica de archivos mostrada en la figura~\ref{fig:estructura-modulo-fig}, siendo requeridos los siguientes ficheros:
-
-\begin{itemize}
-\item \textbf{registration.php:}  Es el nexo de unión entre la gestión de dependencias con Composer y Magento, mediante el mismo, el framework de Magento conoce de la existencia del módulo y permite su uso.
-\item \textbf{etc/module.xml:} Especifica información básica sobre el módulo, como las dependencias con otros módulos de Magento y su número de versión. Este número de versión es utilizado para determinar las instalaciones y actualizaciones sobre base de datos.
-\item \textbf{composer.json:}  Permite la definición de dependencias entre paquetes,  así como su gestión e instalación.
-\end{itemize}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=8cm, keepaspectratio]{img/file-structure}
-  \caption{Estructura de archivos}
-  \label{fig:estructura-modulo-fig}
-\end{figure}
-
-Algunos de los directorios más comunes y su contenido son: 
-\begin{itemize}
-\item \textbf{Block:} Clases PHP de vista, como parte de la implementación de MVC (Modelo Vista Controlador).
-\item \textbf{Controller:} Clases PHP de controladores, como parte de la implementación de MVC.
-\item \textbf{etc:} Archivos de configuración; en particular el fichero requerido module.xml.
-\item \textbf{Model:}  Clases PHP de modelos, como parte de la implementación de MVC.
-\item \textbf{Setup:} Clases relativas a la estructura de base de datos del módulo y la instalación de datos.
-\item \textbf{Api:} Definición de interfaces.
-\item \textbf{Console:} Comandos CLI (Command Line Interface).
-\item \textbf{Cron:} Tareas cron.
-\item \textbf{Helper:} Clases cuyo objetivo es permitir que funcionalidad común sea reutilizada en diferentes sitios del código.
-\item \textbf{i18n:} Archivos de localización.
-\item \textbf{Observer:} Clases cuya ejecución está condicionada a la ocurrencia de ciertos eventos definidos.
-\item \textbf{Plugin:} Clases cuyo objetivo es redefinir funcionalidad existente.
-\item \textbf{view:}  Archivos de vista, incluidos los archivos de vista estática, plantillas de diseño, plantillas de correo electrónico y archivos de diseño.
-\end{itemize}
-
-\subsection{Jerarquía de tiendas}
-\label{subsec:estructura-tiendas}
-
-Cada instalación de Magento tiene una jerarquía de \textit{website(s)}, \textit{store(s)}, y \textit{store view(s)}. Una sola instalación puede tener múltiples sitios web, y cada sitio web puede tener múltiples tiendas y vistas de tiendas.
-El término scope determina a qué parte de la jerarquía se está haciendo referencia, como por ejemplo, a qué scope aplica un entidad determinada (producto, categoría, atributo), un elemento de contenido, una configuración\ldots
-
-Algunas características de cada uno de los distintos niveles de jerarquía son:
-
-\begin{itemize}
-\item \textbf{Website - Sitio web:}
-Una misma instalación de Magento puede contener múltiples sitios web. Los distintos sitios web pueden configurarse para usar el mismo dominio o dominios diferentes, tener clientes compartidos o propios, y podrán tener su propio proceso de checkout y métodos de pago. Puede verse un ejemplo en la figura~\ref{fig:multiwebsites}.
-
-\item \textbf{Store - Tienda:}
-Un sitio web puede contener múltiples tiendas, cada una de ellas con su propio menú principal. Las tiendas pueden tener diferente árbol de categorías o pueden compartirlo, y pueden tener diferentes selección de productos y diseño. Todas las tiendas pertenecientes al mismo sitio web comparten el mismo proceso de checkout, métodos de pago y clientes.
-Puede verse un ejemplo en la figura~\ref{fig:multistores}.
-
-\item \textbf{Store View - Vista de tienda:}
-Cada tienda disponible es presentada de acuerdo a una vista de tienda determinada por defecto, sin embargo existe la posibilidad de crear tantas vistas de tienda asociadas a una tienda como se necesite.
-Un ejemplo de uso muy común, es crear una vista de tienda para cada uno de los idiomas ofrecidos en la tienda. 
-Puede verse un ejemplo en la figura~\ref{fig:multistoreviews}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=10cm, keepaspectratio]{img/multiple_websites}
-  \caption{Múltiples sitios web}
-  \label{fig:multiwebsites}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=10cm, keepaspectratio]{img/multiple_stores}
-  \caption{Múltiples tiendas}
-  \label{fig:multistores}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=10cm, keepaspectratio]{img/multiple_storeviews}
-  \caption{Múltiples vistas de tienda}
-  \label{fig:multistoreviews}
-\end{figure}
-
-\end{itemize}
-
-\section{Tecnologías front-end} 
-\label{sec:web-front}
-Algunas de las tecnologías front-end implicadas en el proyecto son las siguientes:
-
-\subsection{HTML5}
-\label{subsec:html}
-
-HTML5 se trata de la quinta versión del lenguaje de marcado HTML (HyperText Markup Language)~\cite{html}. 
-Es el responsable de estructurar y ordenar el contenido de una página web, que es servida e interpretada a través de un navegador.
-
-El lenguaje HTML está formado por elementos que indican el tipo de contenido que presentan entre su apertura y su cierre, pudiendo anidarse unos elementos dentro de otros. 
-Las páginas HTML se suelen dividir en dos secciones principales: la cabecera y el cuerpo, ambas partes delimitadas por sus correspondientes etiquetas  \textit{head} y  \textit{body}.
-En la cabecera se incluye información relevante, no visible para el usuario, sobre la página web, como metadatos, enlaces a documentos externos o información acerca del estilo de la página, mientras que en el cuerpo se incorpora todo el contenido que el usuario puede ver en pantalla como texto y multimedia.
-
-Una de las mejoras que proporciona HTML5 es la posibilidad de visualizar el contenido multimedia incluso sin conexión. Para ello se han incluido nuevas etiquetas como  \textit{canvas},  \textit{video} y  \textit{audio}, que permiten al usuario consumir vídeos y canciones sin necesidad de instalar nada de forma adicional. Otras nuevas etiquetas importantes de \textit{HTML5} son \textit{header}, \textit{footer}, \textit{nav}, \textit{section} y \textit{article}.
-
-\subsection{CSS3}
-\label{subsec:css}
-Las hojas de estilo en cascada \textit{CSS (Cascading StyleSheets)} ~\cite{css} describen cómo los elementos de un documento escrito en lenguaje de marcado, por ejemplo \textit{HTML}, deberían ser mostrados o presentados en pantalla. Se utiliza principalmente para el diseño visual de la interfaz de usuario de páginas web, mejorando así su apariencia. 
-Se utiliza para representar de manera eficiente los documentos \textit{HTML} y \textit{XML}, separando el contenido de su presentación. 
-
-Algunos de los estilos que es posible modificar a través de estas hojas de estilo son colores, fuentes de texto, tamaños de elementos o de la fuente y su disposición.
-\textit{CSS} evoluciona en \textit{CSS3} para ofrecer una gran variedad de opciones importantes para las necesidades del diseño web actual. Desde opciones de sombreado, redondeado y efectos en textos, hasta funciones más avanzadas de movimiento y transformación.
-
-\subsection{Bootstrap}
-\label{subsec:bootstrap}
-
-\textit{Bootstrap}~\cite{bootstrap} es uno de los frameworks más conocidos para la creación de páginas web. Contiene plantillas basadas en \textit{HTML} y \textit{CSS} que facilitan la implementación del diseño web, así como extensiones adicionales de \textit{JavaScript}.
-Su principal finalidad es convertir el desarrollo front-end en una tarea más sencilla, rápida y eficaz, permitiendo al desarrollador despreocuparse en gran medida del diseño y apariencia básica de la aplicación web.
-
-Una de sus características y motivo principal por el que es tan popular, es que se trata de plantillas con diseño responsive, es decir, adaptables a todo tipo de pantallas y dispositivos de diferentes tamaños.
-
-\subsection{JavaScript}
-\label{subsec:js}
-\textit{JavaScript}~\cite{javascript}, conocido comúnmente como \textit{JS}, es un lenguaje de programación interpretado orientado a objetos que se utiliza principalmente para añadir dinamismo a las páginas web.
-Es usado principalmente en el desarrollo de aplicaciones web en el lado del cliente, no requiere compilación y es el navegador el encargado de interpretar el código.
-Proporciona una mayor usabilidad, interactividad y navegabilidad a la web. También es utilizado, junto con otras tecnologías o herramientas, para enviar y recibir información del servidor.
-
-A pesar de su similitud con el nombre del lenguaje de programación \textit{Java}, no debe confundirse, pues son dos lenguajes de programación que en nada se asemejan. 
-
-\subsection{jQuery}
-\label{subsec:jquery}
-
-\textit{jQuery}~\cite{jquery} es una biblioteca de \textit{JavaScript} de código abierto y software libre que permite simplificar y facilitar el uso de este lenguaje en nuestra página web. 
-Entre las numerosas funcionalidades que \textit{jQuery} ofrece, una de las más importantes es la manipulación del árbol \textit{DOM (Document Object Model)}. 
-Mediante el uso de las funciones \textit{jQuery()} es posible modificar el contenido de la web sin tener que recargarla.
-
-El \textit{DOM} es una representación de todos los elementos que conforman una página web. Sigue una estructura en forma de árbol donde los elementos, denominados nodos, están interconectados, especificando la relación que existe entre cada uno de ellos. 
-
-\textit{jQuery} simplifica la sintaxis para encontrar, seleccionar y manipular dichos elementos \textit{DOM}.
-También permite el manejo de eventos, la modificación de estilos, animaciones, efectos e interacción mediante \textit{AJAX} con el servidor.
-
-\subsection{AJAX}
-\label{subsec:ajax}
-\textit{AJAX (Asynchronous JavaScript And XML)} ~\cite{ajax} es una técnica que permite enviar y recibir información desde el servidor al cliente.
-Este envío de información se realiza a través de una comunicación asíncrona con el servidor, siendo posible realizar cambios en la página sin necesidad de recargar la página.
-Esta técnica permite el desarrollo de webs más eficientes al poder solicitar solo la información requerida, aprovechando los datos cargados previamente; aparte, permite crear aplicaciones más fluidas y dinámicas.
-
-\subsection{RequireJS}
-\label{subsec:require}
-
-\textit{RequireJS}~\cite{require} es una librería \textit{JavaScript} que nos permite aislar mediante módulos los componentes de nuestra aplicación cliente y resolver las dependencias de estos mismos.
-Implementa el patrón de diseño de software \textit{AMD (Asynchronous module definition)}
-
-Se caracteriza por permitir la carga dinámica de dependencias, descarga automática de dependencias y por el manejo de timeouts y carga de fallbacks.
-
-
-\subsection{Knockout.js}
-\label{subsec:knockout}
-\textit{Knockout JS}~\cite{knockout} es una librería de JavaScript que implementa el patrón de diseño Model-View-ViewModel (MVVM). Permite interactuar de una manera fácil con la interfaz de usuario.
-Se caracteriza por contener enlaces declarativos, que permiten asociar fácilmente los elementos DOM con los datos del modelo con una sintaxis legible y concisa y también por la actualización automática de la interfaz de usuario cuando cambia el estado del modelo de datos.
-
-\subsection{JSON}
-\label{subsec:json}
-\textit{JSON (JavaScript Object Notation)}~\cite{json} es un formato ligero para el intercambio de datos. Es fácil de leer y escribir para los humanos y además también es fácil de generar y parsear por los ordenadores.
-Es un formato muy utilizado en la actualidad para enviar información desde un servidor a un cliente ante una petición \textit{AJAX}, siendo dicha información interpretada por código \textit{JavaScript} en el cliente, con lo que permite trabajar con estos datos como si se tratase de cualquier otra variable.
-
-\section{Tecnologías back-end} 
-\label{sec:web-back}
-Algunas de las tecnologías back-end implicadas en el proyecto son las siguientes:
-
-\subsection{PHP}
-\label{subsec:php}
-
-\textit{PHP}~\cite{php} (cuyo acrónimo recursivo es \textit{PHP Hypertext Preprocessor}) es un lenguaje de programación de código abierto, orientado a objetos y de propósito general. Originalmente fue diseñado para el desarrollo web de contenido dinámico, aunque es comúnmente utilizado en la programación de scripts del lado del servidor.
-
-Fue uno de los primeros lenguajes de programación del lado del servidor que se podía incorporar directamente en un documento HTML para desarrollo web. En este caso, el código es interpretado por un servidor web con un módulo de procesador de \textit{PHP} que genera el \textit{HTML} resultante.
-
-Incluye también una interfaz de línea de comandos.
-
-Puede ser usado en la mayoría de los servidores web, al igual que en muchos sistemas operativos y plataformas.
-
-La versión utilizada para este proyecto es \textit{PHP 7.1}
-
-\subsection{Zend Framework}
-\label{subsec:zend}
-
-\textit{Zend Framework}~\cite{zend} es un framework de código abierto para PHP desarrollado por Zend, utilizado en el desarrollo de aplicaciones y servicios web con PHP 5.6+.
-Sus características más destacables son:
-\begin{itemize}
-\item Implementa el patrón MVC (Modelo-Vista-Controlador).
-\item  Es 100\% orientado a objetos.
-\item  Sus componentes tienen un bajo acoplamiento por lo que se pueden usar de forma independiente.
-\item Cuenta con soporte para internacionalización y localización de aplicaciones.
-\item Posee adapters para gran cantidad de tipos de bases de datos diferentes.
-\item Contiene componentes para la autenticación y autorización de usuarios.
-\end{itemize}
-
-\subsection{Composer}
-\label{subsec:composer}
-
-\textit{Composer}~\cite{composer} es un administrador de paquetes a nivel de aplicación para el lenguaje de programación \textit{PHP} que proporciona un formato estándar para administrar las dependencias de paquetes requeridos.
-Se ejecuta desde la línea de comandos e instala las dependencias de la aplicación de forma automática, facilitando el uso del código de terceros.
-También permite a los usuarios instalar aplicaciones \textit{PHP} que están disponibles en \textit{Packagist}~\cite{packagist}, que es el repositorio principal que contiene los paquetes disponibles.
-
-\section{Servidor web} 
-\label{sec:web-back}
-
-\subsection{Apache}
-\label{subsec:apache}
-El servidor web elegido se trata de un servidor \textit{Apache}~\cite{apache}.
-
-Apache es un software de servidor web gratuito y de código abierto, su nombre oficial es Apache HTTP Server. Es mantenido y desarrollado por la Apache Software Foundation. 
-Se trata de uno de los servidores web más antiguos y confiables, cuya primera versión fue lanzada hace más de 20 años, en 1995.
-
-Algunas de sus características más ventajosas son:
-
-\begin{itemize}
-\item Modular
-\item Código abierto
-\item Multiplataforma
-\item Extensible 
-\item Popular (fácil conseguir ayuda/soporte) 
-\end{itemize}
-
-\subsection{Alojamiento}
-\label{subsec:alojamiento}
-La aplicación se encuentra alojada en un servidor de \textit{Digital Ocean}~\cite{digital-ocean}, proveedor estadounidense de servidores virtuales privados.
-Más concretamente, se ha contratado un droplet, máquina virtual flexible que se ejecuta sobre hardware virtualizado, partiendo de una imagen \textit{LAMP (Linux + Apache + Mysql + Php)}.
-
-\section{Base de datos} 
-\label{sec:bbdd}
-
-\subsection{Mysql}
-\label{subsec:mysql}
-
-\textit{MySQL}~\cite{mysql} es un sistema de gestión de bases de datos que cuenta con una doble licencia. Por una parte es de código abierto, pero por otra, cuenta con una versión comercial gestionada por la compañía Oracle. Actualmente es la base de datos de código abierto más utilizada en el sector digital.
-
-Trabaja con bases de datos relacionales, es decir, utiliza tablas múltiples que se interconectan entre sí para almacenar la información y organizarla correctamente.
-Su función es almacenar toda la información que se desee en bases de datos y permitir la administración de estos datos de una forma sencilla gracias a su interfaz visual y a todas las opciones y herramientas de las que dispone.
-
-\section{Código} 
-\label{sec:codigo}
-
-\subsection{PhpStorm}
-\label{subsec:phpstorm}
-\textit{PhpStorm}~\cite{phpstorm} es un IDE (Integrated Development Environment) comercial multiplataforma para PHP creado por JetBrains. PhpStorm proporciona un editor para \textit{PHP}, \textit{HTML} y \textit{JavaScript} con asistencia de código inteligente que ayuda a la prevención de errores y refactorizaciones automatizadas para código PHP y JavaScript. 
-
-\subsection{Git}
-\label{subsec:git}
-\textit{Git}~\cite{git} es un software de control de versiones, pensado para la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando estas tienen un gran número de archivos de código. 
-Su propósito es llevar un registro de los cambios en el código y coordinar el trabajo que varias personas realizan sobre archivos compartidos, permitiendo el desarrollo colaborativo.
-Se ejecuta localmente, es completamente autosuficiente y no requiere el uso de ningún servicio externo de alojamiento en la nube para funcionar.
-
-\subsection{GitHub}
-\label{subsec:github}
-\textit{GitHub}~\cite{github} es una plataforma online de alojamiento del código basada en el sistema de control de versiones Git, que añade servicios a lo que ya ofrece \textit{Git} nativamente.
-Algunas de las principales funcionalidades que ofrece GitHub son:
-
-\begin{itemize}
-\item Edición en línea de archivos.
-\item Proyectos wiki.
-\item Bifurcación de repositorios (forking).
-\item Herramienta de escritorio para administrar repositorios.
-\item Notificaciones y alertas por correo electrónico.
-\item Gestión de claves de cifrado.
-\end{itemize}
-  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -973,9 +971,34 @@ Para ello se han creado las siguientes categorías:
 \end{itemize}
 
 \section{Base de Datos} 
-Esta sección presenta la estructura de base de datos utilizada por la aplicación en lo que al sistema de reservas se refiere, es decir, las nuevas entidades creadas para dicho propósito, dejando al margen el resto de entidades que utiliza Magento para su funcionamiento por defecto.
-
+Esta sección presenta el enlace entre la base de datos y la aplicación, así como la estructura de base de datos utilizada por la aplicación en lo que al sistema de reservas se refiere, es decir, las nuevas entidades creadas para dicho propósito, dejando al margen el resto de entidades que utiliza Magento para su funcionamiento por defecto.
 \label{sec:db}
+
+\subsection{Conexión}
+\label{subsec:db-enlace}
+Los datos de conexión de la aplicación con la base de datos, se definen en el archivo de configuración env.php que se encuentra localizado en la ruta app/etc/env.php del código.
+A continuación se muestra parte de dicho archivo en el que se pueden ver los valores que han sido necesarios definir:
+\begin{verbatim}
+ <?php return [
+	'db' => [
+        'table_prefix' => '',
+        'connection' => [
+            'default' => [
+                'host' => '127.0.0.1',
+                'dbname' => 'dbtours',
+                'username' => 'magento',
+                'password' => 'xxxxxxxxx',
+                'active' => '1'
+            ]
+        ]
+    ],
+    'resource' => [
+        'default_setup' => [
+            'connection' => 'default'
+        ]
+    ]
+];
+\end{verbatim}
 
 \subsection{Diagrama entidad-relación}
 \label{subsec:db-diagrama}
@@ -1104,6 +1127,8 @@ Cubre los casos A, B, E, F, G y H del diagrama~\ref{fig:toureventavailable}.
 Cubre los casos F e I del diagrama~\ref{fig:toureventavailable}.
 \end{enumerate}
 
+El código implementado puede encontrarse en el fichero \textit{Dbtours/TourEvent/Setup/Recurring.php}. El método principal que se encarga de la generación de la vista es el mostrado en la figura~\ref{fig:toureventlanguage_code}
+
 
 \begin{figure}
   \centering
@@ -1117,6 +1142,13 @@ Cubre los casos F e I del diagrama~\ref{fig:toureventavailable}.
   \includegraphics[width=12cm, keepaspectratio]{img/toureventavailable}
   \caption{Tour Event: Casos de no disponibilidad}
   \label{fig:toureventavailable}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/toureventlanguage_code}
+  \caption{Generación de la vista tour\_event\_language}
+  \label{fig:toureventlanguage_code}
 \end{figure}
 
 \section{Proceso de compra} 
@@ -1155,18 +1187,55 @@ Una vez el usuario selecciona el idioma y hora deseada y solo entonces, el tour 
   \label{fig:calendardispo3}
 \end{figure}
 
-\subsection{Creación de reserva} 
+\subsection{Validación de disponibilidad} 
+\label{sec:validacion-disponibilidad}
+Cuando el usuario añade un producto al carrito, es necesario realizar una validación que compruebe que la opción seleccionada por el usuario en el front sigue estando disponible.
+Gracias a que el evento \textit{sales\_quote\_item\_set\_product} de Magento se lanza tras dicha acción, se ha definido un nuevo \textit{observer} atado a este evento que se encarga que realizar una llamada a la lógica desarrollada de validación.
+
+Esta lógica se encuentra implementada en los ficheros:
+\begin{enumerate}
+\item\textit{Dbtours/Catalog/etc/events.xml}: Configuración del observer asociado al evento. El código implementado puede verse en la figura~\ref{fig:availability_event}.
+
+\item\textit{Dbtours/Catalog/Observer/AvailabilityValidatorObserver.php}: Definición del \textit{observer} que se ejecuta al lanzarse el evento y realiza la llamada al método \textit{validate()} de la clase \textit{Dbtours\textbackslash{Catalog}\textbackslash{Model}Quote\textbackslash{Item}AvailabilityValidator}. El código implementado puede verse en la figura~\ref{fig:availability_validator_observer}.
+
+\item\textit{Dbtours/Catalog/Model/Quote/Item/AvailabilityValidator.php}: Clase que comprueba si el producto añadido tiene la opción personalizada \textit{tour\_event} y realiza la llamada al método \textit{validateAvailability()} de la clase \textit{Dbtours\textbackslash{TourEvent}\textbackslash{Helper}Validator}. El código implementado puede verse en la figura~\ref{fig:availability_validator}.
+
+\item\textit{Dbtours/TourEvent/Helper/Validator.php}: Clase que comprueba la disponibilidad en la vista \textit{tour\_event\_language} para la opción seleccionada por el usuario. El código implementado puede verse en la figura~\ref{fig:validator}
+\end{enumerate} 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/availability_event}
+  \caption{Configuración Availability Observer}
+  \label{fig:availability_event}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/availability_validator_observer}
+  \caption{Clase AvailabilityValidatorObserver}
+  \label{fig:availability_validator_observer}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/availability_validator}
+  \caption{Clase AvailabilityValidator}
+  \label{fig:availability_validator}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/validator}
+  \caption{Clase Validator}
+  \label{fig:validator}
+\end{figure}
+
+\subsection{Creación de la reserva} 
 \label{sec:reserva}
-Una vez que el tour ha sido añadido al carrito, el proceso de compra sigue el flujo propio de Magento y el usuario será redirigido al carrito, como se muestra en la figura~\ref{fig:cart}.
+Después de que el tour ha sido añadido al carrito, el proceso de compra sigue el flujo propio de Magento y el usuario será redirigido al carrito, como se muestra en la figura~\ref{fig:cart}.
 Una vez el usuario revisa que su selección es correcta, mediante el botón ``Proceed to Checkout'', llegará al último paso donde podrá revisar el detalle de su pedido, completar su datos, seleccionar el método de pago y confirmar el pedido como se muestra en la figura~\ref{fig:checkout}.
 
-Si el pedido se realiza correctamente, el evento \textit{sales\_model\_service\_quote\_submit\_success} será lanzado, y un nuevo \textit{observer} atado a este evento se ejecutará. Este nuevo \textit{observer} ha sido desarrollado para realizar las siguientes acciones:
- 
-\begin{enumerate}
-\item Para cada producto contenido en el pedido, se crea una nueva reserva asignada al guía disponible con mayor prioridad. Se insertará una nueva entrada en la tabla \textit{booking} de base de datos.
-\item Para cada producto contenido en el pedido, se crean los eventos de calendario necesarios para el guía a la reserva. Siempre se creará al menos un evento del tipo \textit{Booking}, y opcionalmente eventos de calendario del tipo \textit{Transfer}, dependiendo de si el tour reservado tenía bloqueos de disponibilidad anterior y/o posterior. Estos bloqueos son el tiempo necesario que se reserva al guía para el desplazamiento antes y después del tour.
-Estos eventos de calendario se insertarán en la tabla \textit{calendar\_event} de la base de datos.
-\end{enumerate}
 
 \begin{figure}
   \centering
@@ -1180,6 +1249,82 @@ Estos eventos de calendario se insertarán en la tabla \textit{calendar\_event} d
   \includegraphics[width=16cm, keepaspectratio]{img/checkout}
   \caption{Proceso de compra: Checkout}
   \label{fig:checkout}
+\end{figure}
+
+Gracias a que el evento \textit{sales\_model\_service\_quote\_submit\_success} de Magento se lanza en el momento en el que el pedido se realiza correctamente, se ha definido un nuevo \textit{observer} atado a este evento que realizará la creación de la reserva y de los eventos de calendario necesarios. 
+
+Esta lógica se encuentra implementada en los ficheros:
+
+\begin{enumerate}
+\item\textit{Dbtours/Sales/etc/events.xml}: Configuración del observer asociado al evento. El código implementado puede verse en la figura~\ref{fig:success_event}.
+
+\item\textit{Dbtours/Sales/Observer/OrderObserver.php}: Definición del \textit{observer} que se ejecuta al lanzarse el evento y para cada producto contenido en el pedido realiza la llamada al método \textit{execute()} de la clase \textit{Dbtours\textbackslash{Sales}\textbackslash{Service}\textbackslash{Order}NewItem}. El código implementado puede verse en la figura~\ref{fig:order_observer}.
+
+\item\textit{Dbtours/Sales/Service/Order/NewItem.php}: Clase que se encarga de realizar la llamada al método \textit{addNewBooking()} de la clase \textit{Dbtours\textbackslash{Booking}\textbackslash{Service}BookingManager} y al método \textit{addCalendarEvents()} de la clase \textit{Dbtours\textbackslash{Calendar}\textbackslash{Service}CalendarManager} . El código implementado puede verse en la figura~\ref{fig:new_item}.
+
+\item\textit{Dbtours/Booking/Service/BookingManager.php}: Clase que se encarga de crear una nueva reserva asignada al guía disponible con mayor prioridad. Se insertará una nueva entrada en la tabla \textit{booking} de base de datos.
+El código implementado puede verse en las figuras~\ref{fig:booking_manager1} y~\ref{fig:booking_manager2} .
+
+\item\textit{Dbtours/Calendar/Service/CalendarManager.php}: Clase que se encarga de crear los eventos de calendario necesarios para el guía asociado a la reserva. Siempre se creará al menos un evento del tipo \textit{Booking}, y opcionalmente eventos de calendario del tipo \textit{Transfer}, dependiendo de si el tour reservado tenía bloqueos de disponibilidad anterior y/o posterior. Estos bloqueos son el tiempo necesario que se reserva al guía para el desplazamiento antes y después del tour.
+Estos eventos de calendario se insertarán como nuevas entradas en la tabla \textit{calendar\_event} de la base de datos.
+El código implementado puede verse en la figura~\ref{fig:calendar_manager1},~\ref{fig:calendar_manager2} y~\ref{fig:calendar_manager3}.
+
+\end{enumerate} 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/success_event}
+  \caption{Configuración Order Success Observer}
+  \label{fig:success_event}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/order_observer}
+  \caption{Clase Order Observer}
+  \label{fig:order_observer}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/new_item}
+  \caption{Clase NewItem}
+  \label{fig:new_item}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/booking_manager1}
+  \caption{Clase BookingManager 1/2}
+  \label{fig:booking_manager1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/booking_manager2}
+  \caption{Clase BookingManager 2/2}
+  \label{fig:booking_manager2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager1}
+  \caption{Clase CalendarManager 1/3}
+  \label{fig:calendar_manager1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager2}
+  \caption{Clase CalendarManager 2/3}
+  \label{fig:calendar_manager2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager3}
+  \caption{Clase CalendarManager 3/3}
+  \label{fig:calendar_manager3}
 \end{figure}
 
 
@@ -1403,7 +1548,7 @@ Tras la creación de la aplicación web presentada en este proyecto y la consecuci
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Durante el desarrollo de este proyecto, se ha logrado conseguir todos los objetivos definidos tanto en la fase I como en la fase II de la sección \ref{sec:objetivos-especificos} Objetivos Específicos.
+Durante el desarrollo de este proyecto, se han completado las tareas definidas tanto en la fase I como en la fase II de la sección \ref{sec:metodologia-trabajo}.
 
 Se ha decidido concluir el desarrollo terminada la fase II, ya que la extensión de las dos primeras fases cubren el alcance para la entrega y defensa de este TFG. Sin embargo, la fase III será llevada a cabo con posterioridad a la entrega de este TFG para la puesta en producción de la aplicación. 
 
