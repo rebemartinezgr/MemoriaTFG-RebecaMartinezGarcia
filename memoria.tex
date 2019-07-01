@@ -168,13 +168,19 @@ Por último, gracias a Irene y a Alex, quienes confiaron en mí para el desarrollo
 \addcontentsline{toc}{chapter}{Resumen} 
 \markboth{RESUMEN}{RESUMEN} 
 
-Este proyecto consiste en la creación de una aplicación web adaptativa y multi idioma de venta online de tours privados y de un sistema de gestión de reservas.
+Este proyecto ha consistido en la creación de una aplicación web adaptativa y multi idioma de venta online de tours privados y de un sistema de gestión de reservas.
 
 Se ha utilizado Magento~2 como plataforma e-commerce, empleando PHP como lenguaje de programación principal y MySQL como sistema de base de datos, además de otras tecnologías y librerías.
 
-La aplicación se ha alojado en una máquina externa y accesible públicamente, bajo un servidor web Apache.
- 
-Como objetivo final, esta aplicación busca convertirse en la web oficial de la empresa DB Tours, así como en su sistema de gestión de reservas principal.
+La aplicación se ha alojado en una máquina externa, bajo un servidor web Apache y es accesible de forma pública \footnote{\url{http://dev.dbcntours.com}}.
+
+La aplicación permite al usuario consultar el catálogo de tours ofrecidos, sus características e imágenes y la disponibilidad tanto horaria como lingüística en tiempo real de cada tour. El usuario puede también formalizar su reserva a través de los diferentes métodos de pago que se ofrecen. Además permite al administrador de reservas, a través de un panel de administración, gestionar las diferentes reservas, los guías y sus disponibilidades y los horarios e idiomas de cada tour, entre otras funcionalidades.
+
+El proyecto se ha llevado a cabo bajo la petición de un cliente real, la empresa DB Tours, la cual se encuentra especializada en tours privados y a medida en la ciudad de Barcelona.
+DB Tours hará de esta aplicación, su nueva web oficial así como su sistema de gestión de reservas principal.
+
+El cliente ha estado involucrado desde el inicio de la fase de análisis, durante el proceso de desarrollo y hasta la fase de pruebas final.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -187,10 +193,16 @@ This project consists of the creation of an adaptive and multi-language web appl
 
 Magento~2 has been used as an e-commerce platform, using PHP as the main programming language and MySQL as a database system, in addition to other technologies and libraries.
 
-The application has been hosted on an external and public machine, under an Apache web server.
+The application has been hosted on an external machine, under an Apache web server and it has public access \footnote{\url{http://dev.dbcntours.com}}.
 
+The application allows the user to consult the catalog of offered tours, their characteristics and images, and the schedules and linguistic availability in real time of each tour. The user can also confirm their reservation through the different payment methods that are offered.
+
+The application allows the reservation manager, through an administration panel, to manage the existing bookings, the guides and their availability and the schedules and languages of each tour, among other functions.
+
+The project has been developed under the request of a real client, the company DB Tours, which is specialist in private and tailor-made tours in Barcelona.
 This application will become the official website of the company DB Tours, as well as its main booking management system.
 
+The client has been involved from the beginning of the analysis phase, during the development process until the final testing phase.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -543,12 +555,12 @@ Algunas de sus características más ventajosas son:
 \subsubsection{Alojamiento}
 \label{subsec:alojamiento}
 La aplicación se encuentra alojada en un servidor de \textit{Digital Ocean}~\cite{digital-ocean}, proveedor estadounidense de servidores virtuales privados.
-Más concretamente, se ha contratado un droplet, máquina virtual flexible que se ejecuta sobre hardware virtualizado, partiendo de una imagen \textit{LAMP (Linux + Apache + Mysql + Php)}.
+Más concretamente, se ha contratado un droplet, máquina virtual flexible que se ejecuta sobre hardware virtualizado, partiendo de una imagen \textit{LAMP (Linux + Apache + MySQL + Php)}.
 
 \subsection{Base de datos} 
 \label{sec:bbdd}
 
-\subsubsection{Mysql}
+\subsubsection{MySQL}
 \label{subsec:mysql}
 
 \textit{MySQL}~\cite{mysql} es un sistema de gestión de bases de datos que cuenta con una doble licencia. Por una parte es de código abierto, pero por otra, cuenta con una versión comercial gestionada por la compañía Oracle. Actualmente es la base de datos de código abierto más utilizada en el sector digital.
@@ -561,7 +573,7 @@ Su función es almacenar toda la información que se desee en bases de datos y per
 
 \subsubsection{PhpStorm}
 \label{subsec:phpstorm}
-\textit{PhpStorm}~\cite{phpstorm} es un IDE (Integrated Development Environment) comercial multiplataforma para PHP creado por JetBrains. PhpStorm proporciona un editor para \textit{PHP}, \textit{HTML} y \textit{JavaScript} con asistencia de código inteligente que ayuda a la prevención de errores y refactorizaciones automatizadas para código PHP y JavaScript. 
+\textit{PhpStorm}~\cite{phpstorm} es un IDE (Integrated Development Environment) comercial multiplataforma para \emph{PHP} creado por JetBrains. \emph{PhpStorm} proporciona un editor para \textit{PHP}, \textit{HTML} y \textit{JavaScript} con asistencia de código inteligente que ayuda a la prevención de errores y refactorizaciones automatizadas para código \emph{PHP} y \emph{JavaScript}. 
 
 \subsubsection{Git}
 \label{subsec:git}
@@ -571,13 +583,13 @@ Se ejecuta localmente, es completamente autosuficiente y no requiere el uso de n
 
 \subsubsection{GitHub}
 \label{subsec:github}
-\textit{GitHub}~\cite{github} es una plataforma online de alojamiento del código basada en el sistema de control de versiones Git, que añade servicios a lo que ya ofrece \textit{Git} nativamente.
+\textit{GitHub}~\cite{github} es una plataforma online de alojamiento del código basada en el sistema de control de versiones \emph{Git}, que añade servicios a lo que ya ofrece \textit{Git} nativamente.
 Algunas de las principales funcionalidades que ofrece GitHub son:
 
 \begin{itemize}
 \item Edición en línea de archivos.
 \item Proyectos wiki.
-\item Bifurcación de repositorios (forking).
+\item Bifurcación de repositorios \emph{(forking)}.
 \item Herramienta de escritorio para administrar repositorios.
 \item Notificaciones y alertas por correo electrónico.
 \item Gestión de claves de cifrado.
@@ -595,7 +607,10 @@ Con el fin de facilitar la comprensión y el orden del proyecto, a continuación s
    \item \textbf{Capítulo~\ref{chap:implementacion}. Diseño e Implementación: }Este capítulo contiene el análisis realizado y la funcionalidad desarrollada en la aplicación, así como su estructura interna.
   \item \textbf{Capítulo~\ref{chap:resultados}. Resultados:}  En este capítulo se listan los resultados obtenidos.
    \item \textbf{Capítulo~\ref{chap:conclusiones}. Conclusiones: } En este capítulo se analiza el cumplimiento de objetivos, se reflexiona sobre lo aprendido y se mencionan posibles trabajos futuros.
-\end{itemize}
+   \item \textbf{Apéndice~\ref{app:publicacion}. Publicación: } En éste apéndice se ofrecen los enlaces principales tanto a la aplicación como a los repositorios que contienen el código y la presente memoria.
+    \item \textbf{Apéndice~\ref{app:code}. Código: } En éste apéndice se presentan algunos de los fragmentos de código más importantes en la implementación de la aplicación.
+    \item \textbf{Apéndice~\ref{app:server}. Configuración y Despliegue: }  En éste apéndice se describen los pasos y comandos necesarios para la configuración del servidor externo así como el despliegue de la aplicación en el mismo.
+   \end{itemize}
 
 
 
@@ -673,9 +688,9 @@ Adecuación de estilos del tema.
 
 Creación de la estructura del catálogo: productos, atributos y categorías.
 
-Creación de las entidades en base de datos mediante scripts
+Creación de las entidades en base de datos mediante scripts.
 
-Sistema de generación automática de entidades Tour Events.
+Sistema de generación automática de entidades \emph{Tour Events}.
 
 Sistema de consulta de disponibilidad.
 
@@ -707,13 +722,13 @@ Configuración de la cuenta de cliente como cuenta de servidor de correo.
 
 Personalización de la página de contacto.
 
-Creación de contenidos estáticos por idiomas: home, menú, pie de página, páginas de condiciones, zonas de recogida, tours a medida.
+Creación de contenidos estáticos por idiomas: \emph{home}, menú, pie de página, páginas de condiciones, zonas de recogida, tours a medida.
 
 \item \textbf{Desarrollo:}
 
-Maquetación de contenidos estáticos: home, menú, pie de página, zonas de recogida, tours a medida.
+Maquetación de contenidos estáticos: \emph{home}, menú, pie de página, zonas de recogida, tours a medida.
 
-Sistema de generación de tours events manual desde el panel de administración para cada producto.
+Sistema de generación de \emph{tours events} manual desde el panel de administración para cada producto.
 
 Sistema de gestión de la reserva desde el panel de administración.
 
@@ -732,7 +747,7 @@ Se desglosa en las siguientes tareas:
 
 Automatización de un sistema de despliegues en el servidor.
 
-Automatización de un sistema de backups en el servidor.
+Automatización de un sistema de \emph{backups} en el servidor.
 
 Instalación y configuración de Varnish como sistema de full-page caché~\cite{mage-varnish}. 
 
@@ -756,23 +771,23 @@ A continuación se proporciona más información sobre cada uno de ellos.
 \subsection{Periodo I}
 \begin{itemize}
 \item Tiempo natural: desde el 2 de enero de 2019 al 4 de febrero de 2019.
-\item Dedicación: Completa
+\item Dedicación: Completa.
 \item Nivel de esfuerzo: 6 días por semana en jornadas de entre 8 y 12 horas.
-\item Consecución de Objetivos: completar fase I
+\item Consecución de Objetivos: completar fase I.
 \end{itemize}
  
 \subsection{Periodo II}
 \begin{itemize}
 \item Tiempo natural: desde el 4 de febrero de 2019 al 7 de abril de 2019.
-\item Dedicación: Parcial
+\item Dedicación: Parcial.
 \item Nivel de esfuerzo: 3 días por semana en jornadas de entre 8 y 10 horas.
-\item Consecución de Objetivos: completar fase II
+\item Consecución de Objetivos: completar fase II.
 \end{itemize}
 
 \subsection{Periodo III}
 \begin{itemize}
 \item Tiempo natural: desde el 8 de abril de 2019 al 20 de mayo de 2019.
-\item Dedicación: Parcial
+\item Dedicación: Parcial.
 \item Nivel de esfuerzo: 15 horas semanales.
 \item Consecución de Objetivos: escritura de la memoria.
 \end{itemize}
@@ -884,7 +899,7 @@ En este caso, se ha utilizado este tipo de opción personalizada para el número d
 Se ha añadido un valor para cada posible número de asistentes, especificando además el incremento sobre el precio base del producto como se muestra en la figura~\ref{fig:participantsadmin}. 
 Este incremento de precio se añadirá y se mostrará al usuario cuando este seleccione una opción del desplegable en el front, como se muestra en la figura~\ref{fig:participantsfront}.
  
-\item Tipo tour event: Es una opción personalizada que se ha desarrollado con el fin mostrar dinámicamente al usuario las opciones de fecha, hora e idioma existentes, como se puede ver en la figura~\ref{fig:datelanguagefront}.
+\item Tipo \emph{tour event}: Es una opción personalizada que se ha desarrollado con el fin mostrar dinámicamente al usuario las opciones de fecha, hora e idioma existentes, como se puede ver en la figura~\ref{fig:datelanguagefront}.
 Una vez desarrollada la opción, se ha añadido a cada tour esta opción personalizada como se muestra en la figura~\ref{fig:datelanguageadmin}
 \end{enumerate}
 
@@ -976,7 +991,8 @@ Esta sección presenta el enlace entre la base de datos y la aplicación, así como
 
 \subsection{Conexión}
 \label{subsec:db-enlace}
-Los datos de conexión de la aplicación con la base de datos, se definen en el archivo de configuración env.php que se encuentra localizado en la ruta app/etc/env.php del código.
+Los datos de conexión de la aplicación con la base de datos, se definen en el archivo de configuración \emph{env.php} que se encuentra localizado en la ruta app/etc/env.php del código. Éste archivo no se encuentra bajo el sistema de control de versiones de Git por seguridad.
+
 A continuación se muestra parte de dicho archivo en el que se pueden ver los valores que han sido necesarios definir:
 \begin{verbatim}
  <?php return [
@@ -1039,9 +1055,9 @@ A continuación se presenta una descripción breve de cada una de las entidades qu
 \label{sec:disponibilidad}
 Referente a la disponibilidad de los tours, intervienen varios procesos que se describen a continuación.
 
-\subsection{Generación automática de Tour Events} 
+\subsection{Generación automática de \emph{Tour Events}} 
 \label{sec:tourevents}
-Cada Tour Event es una versión de un producto concreto para una fecha y hora determinada, que potencialmente podría ser reservada, siempre y cuando la disponibilidad de un guía lo permitiese.
+Cada \emph{Tour Event} es una versión de un producto concreto para una fecha y hora determinada, que potencialmente podría ser reservada, siempre y cuando la disponibilidad de un guía lo permitiese.
 En su generación intervienen diferentes elementos que se describen a continuación:
 \begin{itemize}
 \item \textbf{Configuración necesaria:}
@@ -1050,69 +1066,69 @@ Por un lado se han añadido dos configuraciones nuevas, que el administrador pued
 \begin{figure}
   \centering
   \includegraphics[width=18cm, keepaspectratio]{img/tourevent_config}
-  \caption{Generación Tour Events: Configuraciones}
+  \caption{Generación \emph{Tour Events}: Configuraciones}
   \label{fig:toureventconfig}
 \end{figure}
 
 \begin{enumerate}
-\item Flag de activación: Permite habilitar y deshabilitar la generación automática de Tour Events.
-\item Días por adelantado: Permite especificar el número de días desde la fecha actual para calcular hasta qué fecha deben crearse los Tour Events.
+\item Flag de activación: Permite habilitar y deshabilitar la generación automática de \emph{Tour Events}.
+\item Días por adelantado: Permite especificar el número de días desde la fecha actual para calcular hasta qué fecha deben crearse los \emph{Tour Events}.
 \end{enumerate}
 
 \item \textbf{Atributos de Producto implicados:}
 
 Desde el panel de administración y para cada producto que se quiera ofrecer bajo reserva online, es necesario especificar los valores para los atributos mostrados en la figura~\ref{fig:product_attribute_time}
 \begin{enumerate}
-\item Duration: Se debe especificar la duración del tour en minutos.
-\item Blocked Before: Se debe especificar en minutos, el tiempo que el guía debe tener disponible inmediatamente anterior al tour, en caso de ser necesario.
-\item Blocked After: Se debe especificar en minutos, el tiempo que el guía debe tener disponible inmediatamente posterior al tour, en caso de ser necesario.
-\item Monday - Sunday Times: Para cada día de la semana que el tour se ofrezca, se deben listar separados por coma, los horarios de salida en formato hh:mm.
+\item \emph{Duration}: Se debe especificar la duración del tour en minutos.
+\item \emph{Blocked Before}: Se debe especificar en minutos, el tiempo que el guía debe tener disponible inmediatamente anterior al tour, en caso de ser necesario.
+\item \emph{Blocked After}: Se debe especificar en minutos, el tiempo que el guía debe tener disponible inmediatamente posterior al tour, en caso de ser necesario.
+\item \emph{Monday - Sunday Times}: Para cada día de la semana que el tour se ofrezca, se deben listar separados por coma, los horarios de salida en formato hh:mm.
 \end{enumerate}
 
 \begin{figure}
   \centering
   \includegraphics[width=14cm, keepaspectratio]{img/product_attribute_time}
-  \caption{Generación Tour Events: Atributos de producto}
+  \caption{Generación \emph{Tour Events}: Atributos de producto}
   \label{fig:product_attribute_time}
 \end{figure}
 
 \item \textbf{Servicio de generación:}
 
-Se ha desarrollado un servicio que se encarga de la generación de Tour Events, implementado en la clase~Dbtours\textbackslash{TourEvent}\textbackslash{Service}\textbackslash{Generator}.
-Este servicio admite como parámetro de forma opcional un listado de identificadores de producto para los que se deben regenerar los Tour Events asociados.
-La ejecución del servicio sigue el flujo mostrado en la figura~\ref{fig:toureventdiagram} y como resultado el contenido de la tabla tour\_event sería semejante a los datos mostrados en la figura~\ref{fig:toureventtable}
+Se ha desarrollado un servicio que se encarga de la generación de \emph{Tour Events}, implementado en la clase~Dbtours\textbackslash{TourEvent}\textbackslash{Service}\textbackslash{Generator}.
+Este servicio admite como parámetro de forma opcional un listado de identificadores de producto para los que se deben regenerar los \emph{Tour Events} asociados.
+La ejecución del servicio sigue el flujo mostrado en la figura~\ref{fig:toureventdiagram} y como resultado el contenido de la tabla \emph{tour\_event} sería semejante a los datos mostrados en la figura~\ref{fig:toureventtable}
 
 \begin{figure}
   \centering
   \includegraphics[width=10cm, keepaspectratio]{img/tourevent_diagram}
-  \caption{Generación Tour Events: Diagrama de flujo}
+  \caption{Generación \emph{Tour Events}: Diagrama de flujo}
   \label{fig:toureventdiagram}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=14cm, keepaspectratio]{img/tourevent_table}
-  \caption{Contenido de la tabla tour\_event}
+  \caption{Contenido de la tabla \emph{tour\_event}}
   \label{fig:toureventtable}
 \end{figure}
 
 
 \item \textbf{Ejecución:}
 
-Se ha definido una tarea programada que invoca a este servicio una vez al mes, con la siguiente expresión cron: [\textit{0 0 1 * *}]. La llamada al servicio de generación desde el proceso cron se realiza sin parámetros, por lo que regenerará todos los Tour Events de todos los productos.
+Se ha definido una tarea programada que invoca a este servicio una vez al mes, con la siguiente expresión cron: [\textit{0 0 1 * *}]. La llamada al servicio de generación desde el proceso cron se realiza sin parámetros, por lo que regenerará todos los \emph{Tour Events} de todos los productos.
 \end{itemize}
 
 \subsection{Vista tour\_event\_language} 
 \label{sec:tourevents}
-La entidad Tour Event Language consiste en una vista de base de datos, que tiene como objetivo simplificar la consulta de disponibilidad. El objetivo es que dado un producto, sea sencillo listar todas las opciones de fechas e idiomas tanto disponibles como ocupadas.
+La entidad \emph{Tour Event Language} consiste en una vista de base de datos, que tiene como objetivo simplificar la consulta de disponibilidad. El objetivo es que dado un producto, sea sencillo listar todas las opciones de fechas e idiomas tanto disponibles como ocupadas.
 
-Su contenido mostrará una entrada única para cada tour\_event\_id e idioma ofrecido por algún guía, y contendrá información sobre la disponibilidad y los guías disponibles ordenados por prioridad de asignación. 
+Su contenido mostrará una entrada única para cada \emph{tour\_event\_id} e idioma ofrecido por algún guía, y contendrá información sobre la disponibilidad y los guías disponibles ordenados por prioridad de asignación. 
 Se puede ver en la figura~\ref{fig:toureventlanguage_table} 
 
-En la generación de esta vista también se tiene en cuenta el valor 3 definido en la configuración mostrado en la figura~\ref{fig:toureventconfig}, que permite al administrador definir el tiempo mínimo necesario entre el momento de reserva y el comienzo del tour, de forma que solo se generan entradas en la vista para Tour Events que cumplan este margen previo de reserva.
+En la generación de esta vista también se tiene en cuenta el valor 3 definido en la configuración mostrado en la figura~\ref{fig:toureventconfig}, que permite al administrador definir el tiempo mínimo necesario entre el momento de reserva y el comienzo del tour, de forma que solo se generan entradas en la vista para \emph{Tour Events} que cumplan este margen previo de reserva.
 
-Respecto a la disponibilidad, se considera que un Tour Event está disponible cuando existe al menos un guía con disponibilidad en su calendario, es decir, que no exista ninguna entrada en la tabla calendar\_event para el guía en cuestión, en el periodo de tiempo comprendido entre la hora de inicio menos el bloqueo anterior y la hora de finalización más el bloqueo posterior del Tour Event. 
-En el diagrama de la figura~\ref{fig:toureventavailable} se puede ver claramente los casos considerados como Tour Event no disponible.
+Respecto a la disponibilidad, se considera que un \emph{Tour Event} está disponible cuando existe al menos un guía con disponibilidad en su calendario, es decir, que no exista ninguna entrada en la tabla \emph{calendar\_event}para el guía en cuestión, en el periodo de tiempo comprendido entre la hora de inicio menos el bloqueo anterior y la hora de finalización más el bloqueo posterior del \emph{Tour Event}. 
+En el diagrama de la figura~\ref{fig:toureventavailable} se puede ver claramente los casos considerados como \emph{Tour Event} no disponible.
 
 La condición utilizada en la generación de la vista que cubre todos los posibles casos es una condición compuesta de la forma [\textit{(1 OR 2 OR 3)} donde cada número se corresponde con una de las siguientes condiciones:
 \begin{enumerate}
@@ -1127,28 +1143,21 @@ Cubre los casos A, B, E, F, G y H del diagrama~\ref{fig:toureventavailable}.
 Cubre los casos F e I del diagrama~\ref{fig:toureventavailable}.
 \end{enumerate}
 
-El código implementado puede encontrarse en el fichero \textit{Dbtours/TourEvent/Setup/Recurring.php}. El método principal que se encarga de la generación de la vista es el mostrado en la figura~\ref{fig:toureventlanguage_code}
+El código implementado puede encontrarse en el fichero \textit{Dbtours/TourEvent/Setup/Recurring.php} \footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/TourEvent/Setup/Recurring.php}}. El método principal que se encarga de la generación de la vista es el mostrado en la figura~\ref{fig:toureventlanguage_code} (Apéndice~\ref{app:code}).
 
 
 \begin{figure}
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/toureventlanguage_table}
-  \caption{Contenido de la tabla tour\_event\_language}
+  \caption{Contenido de la tabla \emph{tour\_event\_language}}
   \label{fig:toureventlanguage_table}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=12cm, keepaspectratio]{img/toureventavailable}
-  \caption{Tour Event: Casos de no disponibilidad}
+  \caption{\emph{Tour Event}: Casos de no disponibilidad}
   \label{fig:toureventavailable}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/toureventlanguage_code}
-  \caption{Generación de la vista tour\_event\_language}
-  \label{fig:toureventlanguage_code}
 \end{figure}
 
 \section{Proceso de compra} 
@@ -1156,7 +1165,7 @@ El código implementado puede encontrarse en el fichero \textit{Dbtours/TourEvent
 
 \subsection{Consulta de disponibilidad} 
 \label{sec:disponibilidad}
-Desde la página de detalle de cada tour de la aplicación y gracias a la opción personalizada tour event, definida en la sección~\ref{subsec:customoptions}, el usuario podrá consultar la disponibilidad de fecha, hora e idioma en un único paso.
+Desde la página de detalle de cada tour de la aplicación y gracias a la opción personalizada \emph{tour event}, definida en la sección~\ref{subsec:customoptions}, el usuario podrá consultar la disponibilidad de fecha, hora e idioma en un único paso.
 
 Puesto que los valores de esta opción no son fijos y varían según disponibilidades de los guías, los datos se cargan dinámicamente por una llamada Ajax que devuelve un listado completo de las opciones de fecha, hora, idioma y disponibilidad para el tour en concreto.
 
@@ -1194,60 +1203,32 @@ Gracias a que el evento \textit{sales\_quote\_item\_set\_product} de Magento se 
 
 Esta lógica se encuentra implementada en los ficheros:
 \begin{enumerate}
-\item\textit{Dbtours/Catalog/etc/events.xml}: Configuración del observer asociado al evento. El código implementado puede verse en la figura~\ref{fig:availability_event}.
+\item\textit{Dbtours/Catalog/etc/events.xml}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Catalog/etc/events.xml}}: Configuración del \emph{observer} asociado al evento. El código implementado puede verse en la figura~\ref{fig:availability_event} (Apéndice~\ref{app:code}).
 
-\item\textit{Dbtours/Catalog/Observer/AvailabilityValidatorObserver.php}: Definición del \textit{observer} que se ejecuta al lanzarse el evento y realiza la llamada al método \textit{validate()} de la clase \textit{Dbtours\textbackslash{Catalog}\textbackslash{Model}Quote\textbackslash{Item}AvailabilityValidator}. El código implementado puede verse en la figura~\ref{fig:availability_validator_observer}.
+\item\textit{Dbtours/Catalog/Observer/AvailabilityValidatorObserver.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Catalog/Observer/AvailabilityValidatorObserver.php}}: Definición del \textit{observer} que se ejecuta al lanzarse el evento y realiza la llamada al método \textit{validate()} de la clase \textit{Dbtours\textbackslash{Catalog}\textbackslash{Model}Quote\textbackslash{Item}AvailabilityValidator}.
 
-\item\textit{Dbtours/Catalog/Model/Quote/Item/AvailabilityValidator.php}: Clase que comprueba si el producto añadido tiene la opción personalizada \textit{tour\_event} y realiza la llamada al método \textit{validateAvailability()} de la clase \textit{Dbtours\textbackslash{TourEvent}\textbackslash{Helper}Validator}. El código implementado puede verse en la figura~\ref{fig:availability_validator}.
+\item\textit{Dbtours/Catalog/Model/Quote/Item/AvailabilityValidator.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Catalog/Model/Quote/Item/AvailabilityValidator.php}}: Clase que comprueba si el producto añadido tiene la opción personalizada \textit{tour\_event} y realiza la llamada al método \textit{validateAvailability()} de la clase \textit{Dbtours\textbackslash{TourEvent}\textbackslash{Helper}Validator}.
 
-\item\textit{Dbtours/TourEvent/Helper/Validator.php}: Clase que comprueba la disponibilidad en la vista \textit{tour\_event\_language} para la opción seleccionada por el usuario. El código implementado puede verse en la figura~\ref{fig:validator}
+\item\textit{Dbtours/TourEvent/Helper/Validator.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/TourEvent/Helper/Validator.php}}: Clase que comprueba la disponibilidad en la vista \textit{tour\_event\_language} para la opción seleccionada por el usuario. El código implementado puede verse en la figura~\ref{fig:validator} (Apéndice~\ref{app:code}).
 \end{enumerate} 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/availability_event}
-  \caption{Configuración Availability Observer}
-  \label{fig:availability_event}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=10cm, keepaspectratio]{img/availability_validator_observer}
-  \caption{Clase AvailabilityValidatorObserver}
-  \label{fig:availability_validator_observer}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/availability_validator}
-  \caption{Clase AvailabilityValidator}
-  \label{fig:availability_validator}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/validator}
-  \caption{Clase Validator}
-  \label{fig:validator}
-\end{figure}
 
 \subsection{Creación de la reserva} 
 \label{sec:reserva}
 Después de que el tour ha sido añadido al carrito, el proceso de compra sigue el flujo propio de Magento y el usuario será redirigido al carrito, como se muestra en la figura~\ref{fig:cart}.
-Una vez el usuario revisa que su selección es correcta, mediante el botón ``Proceed to Checkout'', llegará al último paso donde podrá revisar el detalle de su pedido, completar su datos, seleccionar el método de pago y confirmar el pedido como se muestra en la figura~\ref{fig:checkout}.
-
+Una vez el usuario revisa que su selección es correcta, mediante el botón \emph{``Proceed to Checkout''}, llegará al último paso donde podrá revisar el detalle de su pedido, completar su datos, seleccionar el método de pago y confirmar el pedido como se muestra en la figura~\ref{fig:checkout}.
 
 \begin{figure}
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/cart}
-  \caption{Proceso de compra: Cart}
+  \caption{Proceso de compra: \emph{Cart}}
   \label{fig:cart}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/checkout}
-  \caption{Proceso de compra: Checkout}
+  \caption{Proceso de compra: \emph{Checkout}}
   \label{fig:checkout}
 \end{figure}
 
@@ -1256,77 +1237,20 @@ Gracias a que el evento \textit{sales\_model\_service\_quote\_submit\_success} d
 Esta lógica se encuentra implementada en los ficheros:
 
 \begin{enumerate}
-\item\textit{Dbtours/Sales/etc/events.xml}: Configuración del observer asociado al evento. El código implementado puede verse en la figura~\ref{fig:success_event}.
+\item\textit{Dbtours/Sales/etc/events.xml}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Sales/etc/events.xml}}: Configuración del \emph{observer} asociado al evento. El código implementado puede verse en la figura~\ref{fig:success_event} (Apéndice~\ref{app:code}). 
 
-\item\textit{Dbtours/Sales/Observer/OrderObserver.php}: Definición del \textit{observer} que se ejecuta al lanzarse el evento y para cada producto contenido en el pedido realiza la llamada al método \textit{execute()} de la clase \textit{Dbtours\textbackslash{Sales}\textbackslash{Service}\textbackslash{Order}NewItem}. El código implementado puede verse en la figura~\ref{fig:order_observer}.
+\item\textit{Dbtours/Sales/Observer/OrderObserver.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Sales/Observer/OrderObserver.php}}: Definición del \textit{observer} que se ejecuta al lanzarse el evento y para cada producto contenido en el pedido realiza la llamada al método \textit{execute()} de la clase \textit{Dbtours\textbackslash{Sales}\textbackslash{Service}\textbackslash{Order}NewItem}.
 
-\item\textit{Dbtours/Sales/Service/Order/NewItem.php}: Clase que se encarga de realizar la llamada al método \textit{addNewBooking()} de la clase \textit{Dbtours\textbackslash{Booking}\textbackslash{Service}BookingManager} y al método \textit{addCalendarEvents()} de la clase \textit{Dbtours\textbackslash{Calendar}\textbackslash{Service}CalendarManager} . El código implementado puede verse en la figura~\ref{fig:new_item}.
+\item\textit{Dbtours/Sales/Service/Order/NewItem.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Sales/Service/Order/NewItem.php}}: Clase que se encarga de realizar la llamada al método \textit{addNewBooking()} de la clase \textit{Dbtours\textbackslash{Booking}\textbackslash{Service}BookingManager} y al método \textit{addCalendarEvents()} de la clase \textit{Dbtours\textbackslash{Calendar}\textbackslash{Service}CalendarManager}. 
 
-\item\textit{Dbtours/Booking/Service/BookingManager.php}: Clase que se encarga de crear una nueva reserva asignada al guía disponible con mayor prioridad. Se insertará una nueva entrada en la tabla \textit{booking} de base de datos.
-El código implementado puede verse en las figuras~\ref{fig:booking_manager1} y~\ref{fig:booking_manager2} .
+\item\textit{Dbtours/Booking/Service/BookingManager.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Booking/Service/BookingManager.php}}: Clase que se encarga de crear una nueva reserva asignada al guía disponible con mayor prioridad. Se insertará una nueva entrada en la tabla \textit{booking} de base de datos.
+El código implementado puede verse en las figuras~\ref{fig:booking_manager1} y~\ref{fig:booking_manager2} (Apéndice~\ref{app:code}). 
 
-\item\textit{Dbtours/Calendar/Service/CalendarManager.php}: Clase que se encarga de crear los eventos de calendario necesarios para el guía asociado a la reserva. Siempre se creará al menos un evento del tipo \textit{Booking}, y opcionalmente eventos de calendario del tipo \textit{Transfer}, dependiendo de si el tour reservado tenía bloqueos de disponibilidad anterior y/o posterior. Estos bloqueos son el tiempo necesario que se reserva al guía para el desplazamiento antes y después del tour.
+\item\textit{Dbtours/Calendar/Service/CalendarManager.php}\footnote{\url{https://github.com/rebemartinezgr/dbtours/blob/dev/app/code/Dbtours/Calendar/Service/CalendarManager.php}}: Clase que se encarga de crear los eventos de calendario necesarios para el guía asociado a la reserva. Siempre se creará al menos un evento del tipo \textit{Booking}, y opcionalmente eventos de calendario del tipo \textit{Transfer}, dependiendo de si el tour reservado tenía bloqueos de disponibilidad anterior y/o posterior. Estos bloqueos son el tiempo necesario que se reserva al guía para el desplazamiento antes y después del tour.
 Estos eventos de calendario se insertarán como nuevas entradas en la tabla \textit{calendar\_event} de la base de datos.
-El código implementado puede verse en la figura~\ref{fig:calendar_manager1},~\ref{fig:calendar_manager2} y~\ref{fig:calendar_manager3}.
+El código implementado puede verse en la figura~\ref{fig:calendar_manager1},~\ref{fig:calendar_manager2} y~\ref{fig:calendar_manager3} (Apéndice~\ref{app:code}). 
 
 \end{enumerate} 
-
-\begin{figure}
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/success_event}
-  \caption{Configuración Order Success Observer}
-  \label{fig:success_event}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=12cm, keepaspectratio]{img/order_observer}
-  \caption{Clase Order Observer}
-  \label{fig:order_observer}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/new_item}
-  \caption{Clase NewItem}
-  \label{fig:new_item}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/booking_manager1}
-  \caption{Clase BookingManager 1/2}
-  \label{fig:booking_manager1}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=16cm, keepaspectratio]{img/booking_manager2}
-  \caption{Clase BookingManager 2/2}
-  \label{fig:booking_manager2}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager1}
-  \caption{Clase CalendarManager 1/3}
-  \label{fig:calendar_manager1}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager2}
-  \caption{Clase CalendarManager 2/3}
-  \label{fig:calendar_manager2}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager3}
-  \caption{Clase CalendarManager 3/3}
-  \label{fig:calendar_manager3}
-\end{figure}
-
 
 \section{Gestión desde Backoffice} 
 \label{sec:backoffice}
@@ -1341,19 +1265,19 @@ Se ha creado una nueva entrada en el menú principal ``DB Tours'' la cuál contien
   \label{fig:menuadmin}
 \end{figure}
 
-\subsection{Creación manual de Tour Events} 
+\subsection{Creación manual de \emph{Tour Events}} 
 \label{sec:tourventmanual}
 
-Aunque no es lo habitual, en ocasiones es posible que el administrador decida cambiar los horarios de inicio de algún tour, su duración, o bien el tiempo de bloqueo anterior y/o posterior. Como ya se mencionó en la sección~\ref{sec:tourevents} estos atributos de producto se utilizan en la generación automática de Tour Events, la cual está programada para ejecutarse mensualmente, por lo que si alguno de estos valores cambia para algún tour, estos cambios no se tendrán en cuenta hasta la siguiente generación automática de Tour Events.
+Aunque no es lo habitual, en ocasiones es posible que el administrador decida cambiar los horarios de inicio de algún tour, su duración, o bien el tiempo de bloqueo anterior y/o posterior. Como ya se mencionó en la sección~\ref{sec:tourevents} estos atributos de producto se utilizan en la generación automática de \emph{Tour Events}, la cual está programada para ejecutarse mensualmente, por lo que si alguno de estos valores cambia para algún tour, estos cambios no se tendrán en cuenta hasta la siguiente generación automática de \emph{Tour Events}.
 
-Para ello se ha añadido una nueva vista en el panel de administración a la que se accede desde la entrada ``Tour Events - Generation'',  cuya función es permitir al administrador lanzar la regeneración de Tour Events para uno o varios tours, de forma manual. La vista puede verse en la figura~\ref{fig:toureventmanual}.
+Para ello se ha añadido una nueva vista en el panel de administración a la que se accede desde la entrada ``Tour Events - Generation'',  cuya función es permitir al administrador lanzar la regeneración de \emph{Tour Events} para uno o varios tours, de forma manual. La vista puede verse en la figura~\ref{fig:toureventmanual}.
 
-Cuando el administrador hace clic en el botón ``Generate'', se invocará al servicio descrito en la sección~\ref{sec:tourevents}, pasándole como parámetros los tours seleccionados, regenerando así todos los Tour Events asociados a dichos tours.
+Cuando el administrador hace clic en el botón ``Generate'', se invocará al servicio descrito en la sección~\ref{sec:tourevents}, pasándole como parámetros los tours seleccionados, regenerando así todos los \emph{Tour Events} asociados a dichos tours.
 
 \begin{figure}
   \centering
   \includegraphics[width=14cm, keepaspectratio]{img/toureventmanual}
-  \caption{Generación manual de Tour Events}
+  \caption{Generación manual de \emph{Tour Events}}
   \label{fig:toureventmanual}
 \end{figure}
 
@@ -1391,7 +1315,7 @@ La vista principal muestra un listado de todas las reservas existentes en la apl
 La segunda vista muestra el formulario a través del cuál el administrador puede ver el detalle de la reserva, modificar la fecha e idioma, asignar a otro guía y borrar la reserva. Puede verse en la figura~\ref{fig:formbooking}. Esta información se almacena en la tabla \textit{booking} de base de datos.
 
 Para que las reservas y eventos de calendario de los guías sean consistentes entre sí, se ha desarrollado un \textit{observer}, atado a al evento \textit{dbtours\_booking\_save\_after} que se lanza de forma automática tras el guardado de cada reserva.
-Este observer se encargará de realizar las acciones necesarias tras la modificación de una reserva, que pueden ser:
+Este \emph{observer} se encargará de realizar las acciones necesarias tras la modificación de una reserva, que pueden ser:
 
 \begin{itemize}
 \item Si la fecha y/o hora ha cambiado, modificará los eventos de calendario asociados para la nueva fecha y hora.
@@ -1452,12 +1376,12 @@ Para facilitar la gestión de los eventos de calendario, se han definido tipos de
 \begin{figure}
   \centering
   \includegraphics[width=8cm, keepaspectratio]{img/calandareventtype}
-  \caption{Tabla calendar\_event\_type}
+  \caption{Tabla \emph{calendar\_event\_type}}
   \label{fig:calandareventtype}
 \end{figure}
 
 \subsection{Visualización de eventos de calendario} 
-\label{sec:teventoscalendariovisualizacion}
+\label{sec:eventoscalendariovisualizacion}
 Desde el panel de administración, se permite tener una visión general de los eventos de calendario de los guías. Para ello se ha desarrollado un nueva vista a la que se accede desde la entrada ``Calendar - Calendar'' del menú de administración.
 En ella se muestra un calendario completo con los eventos de calendario existentes en la aplicación como el mostrado en la figura~\ref{fig:calendareventcalendar} y además se permite al usuario filtrar por guía y tipo de evento.
 Cada evento en el calendario está identificado visualmente con el código único de guía asociado y el tipo de evento del que se trata y será mostrado con el color del tipo de evento de la tabla~\ref{fig:calandareventtype}. Haciendo clic sobre un evento en concreto, se previsualiza el resto de información y los detalles de la reserva asociada en caso de que el evento sea del tipo reserva, como puede verse en la figura~\ref{fig:calendareventcalendardetail}
@@ -1521,6 +1445,9 @@ Sobre él, se han trabajado los estilos hasta conseguir el diseño personalizado q
 \chapter{Resultados}
 \label{chap:resultados}
 
+\section{Resultados obtenidos} 
+\label{sec:resultados-obtenidos}
+
 Tras la creación de la aplicación web presentada en este proyecto y la consecución de la mayoría de los objetivos marcados, se han obtenido los siguientes resultados:
 
   \begin{itemize}
@@ -1534,6 +1461,28 @@ Tras la creación de la aplicación web presentada en este proyecto y la consecuci
    
    \item \textbf{Mejora de Posicionamiento:} Gracias a las herramientas de SEO (Search Engine Optimization) que ofrece Magento, existe la posibilidad de mejorar el posicionamiento en Google de la web.
 \end{itemize} 
+
+\section{Valoración del Cliente} 
+\label{sec:valoracion-cliente}
+En esta sección se presenta la valoración obtenida del cliente, quien me trasladó éstas impresiones:
+
+\setlength{\leftskip}{1cm}
+
+ \emph{``Gracias a la nueva página web mejoraremos tanto en imagen como a nivel funcional.}
+
+ \emph{A primera vista, la nueva web es más intuitiva y fácil de usar que la anterior. La estructura y organización de la misma, hace que llegues a la información y al proceso final de compra de manera sencilla.}
+
+ \emph{Esta posibilidad de comprar los tours online y las mejoras en el posicionamiento, hará que ganemos nuevos clientes al ofrecer además seguridad en el pago, varias modalidades de pago a los más indecisos y ahorro de tiempo en la compra (evitando tener que contactar cada vez que se quiere comprar un tour como ocurre en este momento), hará también que fidelicemos clientes que ya han estado con nosotros previamente, a través del envío de ofertas, descuentos y boletín de novedades.}
+
+ \emph{Además, mejoraremos en credibilidad al poder consultar referencias, opiniones y enlaces con redes sociales.}
+
+ \emph{Nos supondrá también un ahorro de tiempo al poder gestionar la página web y sus contenidos sin necesidad de contar con un desarrollador, así como un ahorro en gestiones como: la creación y envío de facturas (actualmente a mano), seguimiento rápido y actualizado en todo momento de los pedidos, control de documentos legales\ldots además de la organización de los guías y sus calendarios.}
+
+ \emph{Gracias al proyecto, también hemos obtenido una visión general de nuestra empresa y de los servicios que ofrecemos, al tener que recopilar, estructurar y plasmar toda la información en un Excel de trabajo compartido.}
+
+ \emph{En definitiva, gracias a la dedicación y el trabajo de Rebeca pasaremos de tener una idea futura a una realidad\ldots ¡Mil gracias!''}
+ 
+ \setlength{\leftskip}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1551,6 +1500,20 @@ Tras la creación de la aplicación web presentada en este proyecto y la consecuci
 Durante el desarrollo de este proyecto, se han completado las tareas definidas tanto en la fase I como en la fase II de la sección \ref{sec:metodologia-trabajo}.
 
 Se ha decidido concluir el desarrollo terminada la fase II, ya que la extensión de las dos primeras fases cubren el alcance para la entrega y defensa de este TFG. Sin embargo, la fase III será llevada a cabo con posterioridad a la entrega de este TFG para la puesta en producción de la aplicación. 
+
+Gran parte del desarrollo de este proyecto ha necesitado una comunicación continua con el cliente, al cual a pesar de estar dispuesto de ayudar en todo lo posible, ha sido necesario guiar en la definición de necesidades.
+En ocasiones, a medida que ha ido avanzando el desarrollo han ido surgiendo nuevos requisitos y ha sido necesario revisar el planteamiento inicial.
+A continuación se presentan algunos ejemplos.
+
+\subsubsection{Definición de los horarios de los tours}
+El proceso de la definición de los horarios de los tours ha ido evolucionando durante el desarrollo. 
+Inicialmente se pensó en que todos los tours se ofrecerían a las mismas horas y los mismos días de la semana, por lo que se añadió una configuración común a todos ellos.
+Posteriormente nació la necesidad de que cada tour pudiera tener sus propios horarios por lo que fue necesario trasladar esa información a nivel de atributo de producto. 
+Finalmente con el último análisis del catálogo descubrí que algunos tours necesitaban que el guía estuviera disponible con anterioridad o posterioridad a la realización del tour, debido al tiempo necesario de traslado. Dado que el tiempo de traslado variaba según el tour, se decidió añadir dos atributos más para contemplar éstos dos casos y fue necesario añadir estos valores en varias de las entidades de base de datos para que se tuvieran en cuenta en la consulta de disponibilidad.  
+
+\subsubsection{Definición de los idiomas}
+Inicialmente se pensó que los idiomas en los que se ofrecerían los tours serían los mismos idiomas en los que se ofrecía la interfaz de la aplicación web (Alemán, Español e Inglés) por lo que el usuario no tendría la opción de seleccionar el idioma en la reserva del tour. 
+Posteriormente nos dimos cuenta que desvinculando los idiomas de los tours de los idiomas de la aplicación, en el futuro sería más fácil incluir nuevo idiomas en los que ofrecer los tours, por lo que finalmente se decidió que el idioma ofrecido estaría ligado el propio guía y se añadió la opción para que el usuario pudiera seleccionar el idioma en el desea realizar el tour.
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
@@ -1618,19 +1581,92 @@ Mostrar en la web las opiniones y reseñas del perfil de DB Tours en Tripadvisor,
 
 \chapter{Publicación}
 \label{app:publicacion}
+A continuación se muestran los enlaces principales tanto a la aplicación como a los repositorios que contienen el código y la presente memoria.
 
-Dominio de la aplicación \footnote{\url{http://dev.dbcntours.com/}}.
+ \begin{itemize}
+  \item Dominio de la aplicación. \footnote{\url{http://dev.dbcntours.com/}}
+ \item Repositorio con el código fuente de la aplicación (Rama dev). \footnote{\url{https://github.com/rebemartinezgr/dbtours}}
+ \item Repositorio de la memoria. \footnote{\url{https://github.com/rebemartinezgr/MemoriaTFG-RebecaMartinezGarcia}}
+ \item Presente documento generado. \footnote{\url{https://github.com/rebemartinezgr/MemoriaTFG-RebecaMartinezGarcia/blob/master/memoria.pdf}}
+\end{itemize}
 
-Repositorio con el código fuente de la aplicación \footnote{\url{https://github.com/rebemartinezgr/dbtours}}
+\chapter{Código}
+\label{app:code}
+A continuación se presentan algunos de los fragmentos de código más importantes en la implementación de la aplicación.
 
-Repositorio de la memoria \footnote{\url{https://github.com/rebemartinezgr/MemoriaTFG-RebecaMartinezGarcia}}
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/toureventlanguage_code}
+  \caption{Generación de la vista \emph{tour\_event\_language}}
+  \label{fig:toureventlanguage_code}
+\end{figure}
 
-Presente documento generado \footnote{\url{https://github.com/rebemartinezgr/MemoriaTFG-RebecaMartinezGarcia/blob/máster/memoria.pdf}}
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/availability_event}
+  \caption{Configuración \emph{Availability Observer}}
+  \label{fig:availability_event}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/validator}
+  \caption{Clase \emph{Validator}}
+  \label{fig:validator}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/success_event}
+  \caption{Configuración \emph{Order Success Observer}}
+  \label{fig:success_event}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/booking_manager1}
+  \caption{Clase \emph{BookingManager} 1/2}
+  \label{fig:booking_manager1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/booking_manager2}
+  \caption{Clase \emph{BookingManager} 2/2}
+  \label{fig:booking_manager2}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager1}
+  \caption{Clase \emph{CalendarManager} 1/3}
+  \label{fig:calendar_manager1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager2}
+  \caption{Clase \emph{CalendarManager} 2/3}
+  \label{fig:calendar_manager2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/calendar_manager3}
+  \caption{Clase \emph{CalendarManager} 3/3}
+  \label{fig:calendar_manager3}
+\end{figure}
+
+
+
+
 
 \chapter{Configuración y despliegue}
 \label{app:server}
 
-Una vez contratado el servidor y con acceso ssh, han sido necesarios los siguientes pasos para su configuración:
+Una vez contratado el servidor y con acceso ssh, han sido necesarios los siguientes pasos para la configuración del sistema y despliegue de la aplicación:
 
 \begin{enumerate}
 
@@ -1722,7 +1758,7 @@ Una vez contratado el servidor y con acceso ssh, han sido necesarios los siguien
    \end{verbatim}
 }
 
-\item Ajustes configuración de Mysql
+\item Ajustes configuración de MySQL
 {\footnotesize
 \begin{verbatim}
 > sudo vim /etc/mysql/my.cnf
